@@ -13,10 +13,102 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Producto">
+      <UniqueIdentifier>{40898b4f-a539-4def-a8fb-bc4d7e30034e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Producto\Perecederos">
+      <UniqueIdentifier>{93516d3a-7cbc-413d-ba7e-3ee612c286df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Producto\Informacion">
+      <UniqueIdentifier>{ed1af806-3010-4838-8102-e1500925f0b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Producto\NoPerecederos">
+      <UniqueIdentifier>{5291076b-9b63-4d10-ade0-f74e7dfb6576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Producto">
+      <UniqueIdentifier>{6872d298-61e9-4aa3-a106-b442b5fb9d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Producto\Informacion">
+      <UniqueIdentifier>{6206fa72-8abb-40ff-a5fd-3f1e6a905893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Producto\Perecederos">
+      <UniqueIdentifier>{fde9ad75-3656-4594-9703-488be9b1fea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Producto\Conserva">
+      <UniqueIdentifier>{7d93317a-e13e-4d35-a614-7d02f46cf2ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PorImplementar..">
+      <UniqueIdentifier>{4cb1830e-f25a-48a3-8337-6199fb16d62c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="programaMinisuper.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Abarrote.cpp">
+      <Filter>Source Files\Producto\Perecederos</Filter>
+    </ClCompile>
+    <ClCompile Include="Carne.cpp">
+      <Filter>Source Files\Producto\Perecederos</Filter>
+    </ClCompile>
+    <ClCompile Include="Categoria.cpp">
+      <Filter>Source Files\Producto\Informacion</Filter>
+    </ClCompile>
+    <ClCompile Include="Conserva.cpp">
+      <Filter>Source Files\Producto\Conserva</Filter>
+    </ClCompile>
+    <ClCompile Include="Embutido.cpp">
+      <Filter>Source Files\Producto\Perecederos</Filter>
+    </ClCompile>
+    <ClCompile Include="Empaque.cpp">
+      <Filter>Source Files\Producto\Perecederos</Filter>
+    </ClCompile>
+    <ClCompile Include="Fecha.cpp">
+      <Filter>Source Files\Producto\Informacion</Filter>
+    </ClCompile>
+    <ClCompile Include="Perecedero.cpp">
+      <Filter>Source Files\Producto\Perecederos</Filter>
+    </ClCompile>
+    <ClCompile Include="Producto.cpp">
+      <Filter>Source Files\Producto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Producto.h">
+      <Filter>Header Files\Producto</Filter>
+    </ClInclude>
+    <ClInclude Include="Perecedero.h">
+      <Filter>Header Files\Producto\Perecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="Empaque.h">
+      <Filter>Header Files\Producto\Perecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="Embutido.h">
+      <Filter>Header Files\Producto\Perecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="Carne.h">
+      <Filter>Header Files\Producto\Perecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="Abarrote.h">
+      <Filter>Header Files\Producto\Perecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="Categoria.h">
+      <Filter>Header Files\Producto\Informacion</Filter>
+    </ClInclude>
+    <ClInclude Include="Fecha.h">
+      <Filter>Header Files\Producto\Informacion</Filter>
+    </ClInclude>
+    <ClInclude Include="Conserva.h">
+      <Filter>Header Files\Producto\NoPerecederos</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaProductos.h">
+      <Filter>Header Files\PorImplementar..</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaFacturas.h">
+      <Filter>Header Files\PorImplementar..</Filter>
+    </ClInclude>
+    <ClInclude Include="Factura.h">
+      <Filter>Header Files\PorImplementar..</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
