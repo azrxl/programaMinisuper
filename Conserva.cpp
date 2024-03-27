@@ -16,14 +16,14 @@ string Conserva::toString() const
 {
     std::stringstream s;
     s << "Código: " << codigo << "\n"
-        << "Nombre Comercial: " << nombreComercial << "\n"
-        << "Descripción: " << descripcion << "\n"
-        << "Precio: " << precio << "\n"
-        << "Categoría: " << categoria << "\n"
-        << "Existencia: " << existencia << "\n"
-        << "Límite: " << limite << "\n"
-        << "Envasado: " << (envasado ? "Sí" : "No") << "\n"
-        << "Fecha de ingreso: " << fecha.getFecha() << "\n";
+      << "Nombre Comercial: " << nombreComercial << "\n"
+      << "Descripción: " << descripcion << "\n"
+      << "Precio: " << precio << "\n"
+      << "Categoría: " << categoria << "\n"
+      << "Existencia: " << existencia << "\n"
+      << "Límite: " << limite << "\n"
+      << "Envasado: " << (envasado ? "Sí" : "No") << "\n"
+      << "Fecha de ingreso: " << fecha.getFecha() << "\n";
 
     return s.str();
 }

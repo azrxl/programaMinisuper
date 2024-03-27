@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Producto">
-      <UniqueIdentifier>{40898b4f-a539-4def-a8fb-bc4d7e30034e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Producto\Perecederos">
-      <UniqueIdentifier>{93516d3a-7cbc-413d-ba7e-3ee612c286df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Producto\Informacion">
-      <UniqueIdentifier>{ed1af806-3010-4838-8102-e1500925f0b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Producto\NoPerecederos">
-      <UniqueIdentifier>{5291076b-9b63-4d10-ade0-f74e7dfb6576}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Producto">
       <UniqueIdentifier>{6872d298-61e9-4aa3-a106-b442b5fb9d62}</UniqueIdentifier>
     </Filter>
@@ -39,6 +27,27 @@
     </Filter>
     <Filter Include="Header Files\PorImplementar..">
       <UniqueIdentifier>{4cb1830e-f25a-48a3-8337-6199fb16d62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas">
+      <UniqueIdentifier>{a7fbd9ea-baee-44cb-a007-6d7b22e0e67c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaProducto">
+      <UniqueIdentifier>{dd27833a-565c-4aeb-bca2-44ed2faf42b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaFacturas">
+      <UniqueIdentifier>{d8d2c815-6cb7-444f-a1a1-42aed3798ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaProducto\Producto">
+      <UniqueIdentifier>{40898b4f-a539-4def-a8fb-bc4d7e30034e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaProducto\Producto\Perecederos">
+      <UniqueIdentifier>{93516d3a-7cbc-413d-ba7e-3ee612c286df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaProducto\Producto\Informacion">
+      <UniqueIdentifier>{ed1af806-3010-4838-8102-e1500925f0b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Listas\ListaProducto\Producto\NoPerecederos">
+      <UniqueIdentifier>{5291076b-9b63-4d10-ade0-f74e7dfb6576}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +69,6 @@
     <ClCompile Include="Embutido.cpp">
       <Filter>Source Files\Producto\Perecederos</Filter>
     </ClCompile>
-    <ClCompile Include="Empaque.cpp">
-      <Filter>Source Files\Producto\Perecederos</Filter>
-    </ClCompile>
     <ClCompile Include="Fecha.cpp">
       <Filter>Source Files\Producto\Informacion</Filter>
     </ClCompile>
@@ -75,40 +81,40 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Producto.h">
-      <Filter>Header Files\Producto</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto</Filter>
     </ClInclude>
     <ClInclude Include="Perecedero.h">
-      <Filter>Header Files\Producto\Perecederos</Filter>
-    </ClInclude>
-    <ClInclude Include="Empaque.h">
-      <Filter>Header Files\Producto\Perecederos</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Perecederos</Filter>
     </ClInclude>
     <ClInclude Include="Embutido.h">
-      <Filter>Header Files\Producto\Perecederos</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Perecederos</Filter>
     </ClInclude>
     <ClInclude Include="Carne.h">
-      <Filter>Header Files\Producto\Perecederos</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Perecederos</Filter>
     </ClInclude>
     <ClInclude Include="Abarrote.h">
-      <Filter>Header Files\Producto\Perecederos</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Perecederos</Filter>
     </ClInclude>
     <ClInclude Include="Categoria.h">
-      <Filter>Header Files\Producto\Informacion</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Informacion</Filter>
     </ClInclude>
     <ClInclude Include="Fecha.h">
-      <Filter>Header Files\Producto\Informacion</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\Informacion</Filter>
     </ClInclude>
     <ClInclude Include="Conserva.h">
-      <Filter>Header Files\Producto\NoPerecederos</Filter>
+      <Filter>Header Files\Listas\ListaProducto\Producto\NoPerecederos</Filter>
     </ClInclude>
     <ClInclude Include="ListaProductos.h">
-      <Filter>Header Files\PorImplementar..</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaFacturas.h">
-      <Filter>Header Files\PorImplementar..</Filter>
+      <Filter>Header Files\Listas\ListaProducto</Filter>
     </ClInclude>
     <ClInclude Include="Factura.h">
-      <Filter>Header Files\PorImplementar..</Filter>
+      <Filter>Header Files\Listas\ListaFacturas</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaFacturas.h">
+      <Filter>Header Files\Listas\ListaFacturas</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoProductos.h">
+      <Filter>Header Files\Listas\ListaProducto</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
