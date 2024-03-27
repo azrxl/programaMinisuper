@@ -1,9 +1,13 @@
 #include <iostream>
+#include "Lista.h"
+#include "Conserva.h"
 #include "Embutido.h"
 
 int main()
 {
-	Embutido uwu("Suli", "Cerdo", "Visceras", true, "1234", "ElPepe", "Embutido", 1259.99, 2, 5, 10, true, 500, 26, 3, 24);
-	std::cout << uwu.toString();
-	uwu;
+	Producto* ptr1 = new Conserva;
+	Producto* ptr2 = new Carne;
+	Lista l;
+	l.agregar(ptr1).agregar(ptr2);
+	std::cout << l.toString();
 }

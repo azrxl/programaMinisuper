@@ -132,7 +132,10 @@
     <ClCompile Include="Categoria.cpp" />
     <ClCompile Include="Conserva.cpp" />
     <ClCompile Include="Embutido.cpp" />
+    <ClCompile Include="Factura.cpp" />
     <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="ListaFacturas.cpp" />
+    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Perecedero.cpp" />
     <ClCompile Include="Producto.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,8 +149,8 @@
     <ClInclude Include="Factura.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="ListaFacturas.h" />
-    <ClInclude Include="ListaProductos.h" />
-    <ClInclude Include="NodoProductos.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="Nodo.h" />
     <ClInclude Include="Perecedero.h" />
     <ClInclude Include="Producto.h" />
   </ItemGroup>

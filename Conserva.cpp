@@ -2,7 +2,9 @@
 
 Conserva::Conserva()
 	: Producto(), envasado{ false }
-{}
+{
+    descripcion = "conserva";
+}
 Conserva::Conserva(string _codigo, string _nombreComercial, string _descripcion, 
     double _precio, int _categoria, int _existencia, int _limite, bool _envasado, int dia, int mes, int anno)
 	: Producto(_codigo,  _nombreComercial,  _descripcion, _precio,  _categoria,  _existencia,  _limite, dia, mes, anno), 
