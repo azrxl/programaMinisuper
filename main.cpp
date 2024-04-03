@@ -10,4 +10,5 @@ int main()
 	Lista l;
 	l.agregar(ptr1).agregar(ptr2);
 	std::cout << l.toString();
+	std::cout << "Me gusta el pene. Att: Emiliano.";
 }
