@@ -46,7 +46,7 @@ bool Lista::modificar(int opcion, string id, int n)
 	}
 	else {
 		while (tmp != nullptr) {
-			if (tmp->next->dato->getCodigo() == id || tmp->next->dato->getNombre() == id) {
+			if (tmp->dato->getCodigo() == id || tmp->dato->getNombre() == id) {
 				if (opcion == 1)
 					tmp->dato->setPrecio(n);
 

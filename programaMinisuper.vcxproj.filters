@@ -55,6 +55,30 @@
     <Filter Include="Source Files\Listas\ListaFacturas">
       <UniqueIdentifier>{f8777bc7-d1d7-4870-9198-e91f9ec660f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interfaz">
+      <UniqueIdentifier>{2acc5db1-4e57-4e5a-990c-c5e85ec48cc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaz">
+      <UniqueIdentifier>{3d0dbf0d-1e8c-4e70-8627-394fe0ab97f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaz\Excepciones">
+      <UniqueIdentifier>{0a7f9b32-5044-4a3b-bbb7-1cf1aa63b529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaz\Archivos">
+      <UniqueIdentifier>{fc71767a-76b8-4536-9ad9-ff7082804148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaz\Patrones">
+      <UniqueIdentifier>{3f174180-59bb-4f78-bfc1-45afaff511b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaz\Excepciones">
+      <UniqueIdentifier>{e014a794-2931-433b-9d81-443c74a8c059}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaz\Archivos">
+      <UniqueIdentifier>{73986dab-3cb2-453a-826e-507e6caa9c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaz\Patrones">
+      <UniqueIdentifier>{50618422-06f0-4f52-bffb-4615dafabfa0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,6 +117,21 @@
     <ClCompile Include="Factura.cpp">
       <Filter>Source Files\Listas\ListaFacturas</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaz.cpp">
+      <Filter>Source Files\Interfaz</Filter>
+    </ClCompile>
+    <ClCompile Include="Iterator.cpp">
+      <Filter>Source Files\Interfaz\Patrones</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>Source Files\Interfaz\Patrones</Filter>
+    </ClCompile>
+    <ClCompile Include="Excepciones.cpp">
+      <Filter>Source Files\Interfaz\Excepciones</Filter>
+    </ClCompile>
+    <ClCompile Include="Archivo.cpp">
+      <Filter>Source Files\Interfaz\Archivos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Producto.h">
@@ -130,6 +169,21 @@
     </ClInclude>
     <ClInclude Include="Nodo.h">
       <Filter>Header Files\Listas\ListaProductos</Filter>
+    </ClInclude>
+    <ClInclude Include="Excepciones.h">
+      <Filter>Header Files\Interfaz\Excepciones</Filter>
+    </ClInclude>
+    <ClInclude Include="Archivo.h">
+      <Filter>Header Files\Interfaz\Archivos</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaz.h">
+      <Filter>Header Files\Interfaz</Filter>
+    </ClInclude>
+    <ClInclude Include="Iterator.h">
+      <Filter>Header Files\Interfaz\Patrones</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Header Files\Interfaz\Patrones</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
