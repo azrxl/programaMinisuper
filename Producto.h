@@ -17,6 +17,8 @@ public:
 	virtual string toString() const = 0;
 	string getNombre();
 	string getCodigo();
+	void setPrecio(int precio);
+	void setExistencia(int existencia);
 protected:
 	string codigo;
 	string nombreComercial;

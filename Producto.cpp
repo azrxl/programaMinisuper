@@ -17,3 +17,7 @@ int Producto::porcentajeGanancia() { return ganancia(categoria); }
 string Producto::getNombre(){ return nombreComercial; }
 
 string Producto::getCodigo() { return codigo; }
+
+void Producto::setPrecio(int _precio) { precio = _precio; }
+
+void Producto::setExistencia(int _existencia) { existencia = _existencia; }

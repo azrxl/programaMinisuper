@@ -8,7 +8,8 @@ public:
 	virtual ~Lista();
 	Nodo* getInicio();
 	Lista& agregar(Producto* dato);
-	bool eliminar(string nombre);
+	bool eliminar(string id);
+	bool modificar(int opcion, string id, int n);
 	std::string toString();
 
 private:
