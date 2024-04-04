@@ -14,19 +14,8 @@ Lista::~Lista() {
 
 Nodo* Lista::getInicio() { return inicio; }
 
-std::string Lista::toString()
+Lista& Lista::agregar(Producto* d)
 {
-	std::stringstream s;
-	Nodo* tmp = inicio;
-	while (tmp != nullptr) {
-		s << tmp->dato->toString() << "\n\n";
-		tmp = tmp->next;
-	}
-	return s.str();
-}
-
-Lista& Lista::agregar(Producto* d) 
-{ 
 	if (inicio == nullptr) {
 		inicio = new Nodo;
 		inicio->dato = d;
@@ -43,3 +32,38 @@ Lista& Lista::agregar(Producto* d)
 	}
 	return *this;
 }
+
+bool Lista::eliminar(string nombre) {
+	Nodo* tmp = inicio;
+	if (inicio->dato->getCodigo() == nombre || inicio->dato->getNombre() == nombre) {
+		inicio = inicio->next;
+		delete tmp;
+		return true;
+	}
+	else {
+		Nodo* anterior = nullptr;
+		while (tmp != nullptr) {
+			if (tmp->next->dato->getCodigo() == nombre || tmp->next->dato->getNombre() == nombre) {
+				anterior = tmp;
+				tmp = tmp->next;
+				anterior->next = tmp->next;
+				delete tmp;
+				return true;
+			}
+			tmp = tmp->next;
+		}
+	}
+	return false;
+}
+
+std::string Lista::toString()
+{
+	std::stringstream s;
+	Nodo* tmp = inicio;
+	while (tmp != nullptr) {
+		s << tmp->dato->toString() << "\n\n";
+		tmp = tmp->next;
+	}
+	return s.str();
+}
+

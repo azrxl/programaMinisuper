@@ -13,3 +13,7 @@ Producto::Producto(string _codigo, string _nombreComercial, string _descripcion,
 Producto::~Producto() {}
 
 int Producto::porcentajeGanancia() { return ganancia(categoria); }
+
+string Producto::getNombre(){ return nombreComercial; }
+
+string Producto::getCodigo() { return codigo; }

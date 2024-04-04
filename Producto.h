@@ -15,6 +15,8 @@ public:
 	virtual ~Producto();
 	int porcentajeGanancia();
 	virtual string toString() const = 0;
+	string getNombre();
+	string getCodigo();
 protected:
 	string codigo;
 	string nombreComercial;
