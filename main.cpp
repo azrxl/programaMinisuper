@@ -9,12 +9,12 @@ int main()
 	Producto* ptr1 = new Conserva("1234", "Envase", "elpepe", 1000, 2, 5, 2, true, 5, 3, 4);
 	Producto* ptr2 = new Carne;
 
-	Lista l;
+	Lista<Producto*> l;
 	l.agregar(ptr0).agregar(ptr1).agregar(ptr2);
 	std::cout << l.toString();
 	std::cout << '\n';
 	std::cout << "Producto modificado:\n";
-	if (l.modificar(1, "5678", 5000)) {
+	if (l.eliminar("5678")) {
 		std::cout << l.toString();
 	}
 	else {

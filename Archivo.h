@@ -2,6 +2,7 @@
 #include <fstream>
 #include "Lista.h"
 
+/*
 class Archivo
 {
 public:
@@ -14,3 +15,4 @@ private:
 	std::string nombreArchivo;
 };
 
+*/
