@@ -9,13 +9,13 @@
 class Archivo
 {
 public:
-	Archivo(std::string nombre)
-		: nombreArchivo{nombre} {}
-	virtual ~Archivo();
-	void guardarProductos(Lista<Producto>* lista);
-	void guardarFacturas(Lista<Factura>* lista);
+	static Archivo& getArchivo();
+	void guardarProductos(std::string nombre, const Lista<Producto>* lista);
+	void guardarFacturas(std::string nombre, const Lista<Factura>* lista);
 	void cargarLista(std::string nombre);
 
 private:
-	std::string nombreArchivo;
+	Archivo();
+	Archivo(const Archivo&) = delete;
+	Archivo& operator=(const Archivo&) = delete;
 };

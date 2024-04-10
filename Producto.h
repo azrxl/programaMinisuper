@@ -19,6 +19,7 @@ public:
 	string getCodigo();
 	void setPrecio(int precio);
 	void setExistencia(int existencia);
+	virtual void cargar();
 protected:
 	string codigo;
 	string nombreComercial;

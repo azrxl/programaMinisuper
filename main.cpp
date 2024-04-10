@@ -14,7 +14,7 @@ int main()
 	std::cout << l.toString();
 	std::cout << '\n';
 	std::cout << "Producto modificado:\n";
-	if (l.eliminar("5678")) {
+	if (l.eliminar("null")) {
 		std::cout << l.toString();
 	}
 	else {

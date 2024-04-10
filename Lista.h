@@ -52,7 +52,7 @@ public:
 		}
 		else {
 			Nodo* anterior = nullptr;
-			for (Iterador it = begin(); it != end(); ++it) {
+			while (tmp != nullptr) {
 				if (tmp->next->dato->getCodigo() == codigo || tmp->next->dato->getNombre() == codigo) {
 					anterior = tmp;
 					tmp = tmp->next;
@@ -92,6 +92,14 @@ public:
 			tmp = tmp->next;
 		}
 		return s.str();
+	}
+
+	std::string cargar() const {
+		std::stringstream s;
+		Nodo* tmp = inicio;
+		while (tmp != nullptr) {
+			s << tmp->dato
+		}
 	}
 };
 
