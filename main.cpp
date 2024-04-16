@@ -12,7 +12,7 @@ int main()
 
 	Lista<Producto*> l;
 	l.agregar(ptr0).agregar(ptr1).agregar(ptr2);
-	std::cout << l.toString();
+	/*std::cout << l.toString();
 	std::cout << '\n';
 	std::cout << "Producto modificado:\n";
 	if (l.modificarProducto(1,"null",300)) {
@@ -21,14 +21,11 @@ int main()
 	else {
 		std::cout << "No se pudo";
 	}
-	
+	*/
 
-	/*Factura fac("12345", l);
+	Factura fac("123456", l);
 	std::cout << fac.toString();
-*/
-	delete ptr0;
-	delete ptr1;
-	delete ptr2;
+
 
 }
 

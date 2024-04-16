@@ -14,7 +14,19 @@ private:
 public:
 	Lista(): inicio{ nullptr } {}
 
-	Nodo* getInicio() { return inicio; }
+	Lista(const Lista& otra) : inicio{ nullptr } {
+		for (auto it = otra.begin(); it != otra.end(); ++it) {
+			agregar(*it);
+		}
+	}
+	Lista& operator=(const Lista& otra) {
+		if (this == &otra) return *this;
+		Lista tmp(otra);
+		Nodo* tmpN = inicio;
+		inicio = tmp.inicio;
+		tmp.inicio = tmpN;
+		return *this;
+	}
 
 	virtual ~Lista() {
 		Nodo* tmp = inicio;
@@ -22,7 +34,7 @@ public:
 			inicio = inicio->next;
 			delete tmp;
 			tmp = inicio;
-		}
+		}	
 	}
 
 	Lista& agregar(T dato)	{
@@ -92,6 +104,9 @@ public:
 			s << tmp->dato;
 		}
 	}
+
+	Nodo* getInicio() { return inicio; }
+
 	class Iterador {
 	private:
 		Nodo* actual;
@@ -117,10 +132,10 @@ public:
 			return actual != otro.actual;
 		}
 	};
-	Iterador begin() {
+	Iterador begin() const {
 		return Iterador(inicio);
 	}
-	Iterador end() {
+	Iterador end() const {
 		return Iterador(nullptr);
 	}
 };
