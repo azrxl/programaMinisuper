@@ -9,18 +9,9 @@ private:
 		T dato;
 		Nodo* next;
 	};
-
 	Nodo* inicio;
+
 public:
-	class Iterador;
-
-	Iterador begin() {
-		return Iterador(inicio);
-	}
-	Iterador end() {
-		return Iterador(nullptr);
-	}
-
 	Lista(): inicio{ nullptr } {}
 
 	Nodo* getInicio() { return inicio; }
@@ -98,39 +89,39 @@ public:
 		std::stringstream s;
 		Nodo* tmp = inicio;
 		while (tmp != nullptr) {
-			s << tmp->dato
+			s << tmp->dato;
 		}
 	}
+	class Iterador {
+	private:
+		Nodo* actual;
+
+	public:
+		Iterador(Nodo* nodo) : actual(nodo) {}
+
+		T& operator*() const {
+			if (!actual) {
+				throw std::out_of_range("Acceso inválido");
+			}
+			return actual->dato;
+		}
+
+		Iterador& operator++() {
+			if (actual) {
+				actual = actual->next;
+			}
+			return *this;
+		}
+
+		bool operator!=(const Iterador& otro) const {
+			return actual != otro.actual;
+		}
+	};
+	Iterador begin() {
+		return Iterador(inicio);
+	}
+	Iterador end() {
+		return Iterador(nullptr);
+	}
 };
 
-template<typename T>
-class Lista<T>::Iterador {
-private:
-	Nodo* nodo;
-public:
-	Iterador() : nodo{ nullptr } {}
-	Iterador(Nodo* _nodo) : nodo{ _nodo } {}
-
-	Iterador& operator=(const Iterador& otro) {
-		nodo->dato = otro;
-		return *this;
-	}
-
-	T& operator*() const {
-		return inicio->dato;
-	}
-
-	Iterador& operator++() {
-		if (nodo->next != nullptr)
-			nodo = nodo->next;
-		return *this;
-	}
-
-	bool operator==(const Iterador& otro) const {
-		return nodo == otro.nodo;
-	}
-
-	bool operator!=(const Iterador& otro) const {
-		return !(*this == otro);
-	}
-};

@@ -67,6 +67,9 @@
     <Filter Include="Header Files\Objetos\Factura">
       <UniqueIdentifier>{d37e531d-8cbf-4115-9ec7-65c320250119}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objetos\Factura">
+      <UniqueIdentifier>{c84ffe2f-0b79-4fbf-a7fe-105e072703ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="Archivo.cpp">
       <Filter>Source Files\Interfaz\Archivos</Filter>
+    </ClCompile>
+    <ClCompile Include="Factura.cpp">
+      <Filter>Source Files\Objetos\Factura</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -29,3 +29,4 @@ string Conserva::toString() const
 
     return s.str();
 }
+

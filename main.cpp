@@ -2,6 +2,7 @@
 #include "Lista.h"
 #include "Conserva.h"
 #include "Embutido.h"
+#include "Factura.h"
 
 int main()
 {
@@ -14,13 +15,17 @@ int main()
 	std::cout << l.toString();
 	std::cout << '\n';
 	std::cout << "Producto modificado:\n";
-	if (l.eliminar("null")) {
+	if (l.modificarProducto(1,"null",300)) {
 		std::cout << l.toString();
 	}
 	else {
 		std::cout << "No se pudo";
 	}
+	
 
+	/*Factura fac("12345", l);
+	std::cout << fac.toString();
+*/
 	delete ptr0;
 	delete ptr1;
 	delete ptr2;

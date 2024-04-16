@@ -18,6 +18,8 @@ string Producto::getNombre(){ return nombreComercial; }
 
 string Producto::getCodigo() { return codigo; }
 
+double Producto::getPrecio() { return precio; }
+
 void Producto::setPrecio(int _precio) { precio = _precio; }
 
 void Producto::setExistencia(int _existencia) { existencia = _existencia; }

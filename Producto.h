@@ -17,9 +17,9 @@ public:
 	virtual string toString() const = 0;
 	string getNombre();
 	string getCodigo();
+	double getPrecio();
 	void setPrecio(int precio);
 	void setExistencia(int existencia);
-	virtual void cargar();
 protected:
 	string codigo;
 	string nombreComercial;
@@ -29,6 +29,5 @@ protected:
 	int existencia;
 	int limite;
 	Fecha fecha;
-
 };
 

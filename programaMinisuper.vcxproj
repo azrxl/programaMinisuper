@@ -134,6 +134,7 @@
     <ClCompile Include="Conserva.cpp" />
     <ClCompile Include="Embutido.cpp" />
     <ClCompile Include="Excepciones.cpp" />
+    <ClCompile Include="Factura.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Perecedero.cpp" />
