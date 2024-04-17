@@ -3,8 +3,20 @@
 
 class Interfaz {
 public:
-	void menu();
+    void menu();
+
 private:
-	int x;
+    void mostrarMenuPrincipal();
+    void menuMantenimiento();
+    void menuFacturas();
+    void menuProductos();
+    void menuVentas();
+    void menuReportar();
+    int obtenerOpcion(int min, int max);
+    void gestionarFactura(const std::string& accion);
+    void gestionarProducto(const std::string& accion);
+
+	Lista<Producto*> listaProductos;
+	Lista<Factura*> listaFacturas;
 };
 
