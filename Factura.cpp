@@ -40,6 +40,10 @@ std::string Factura::toString() {
     return s.str();
 }
 
+std::string Factura::guardar() {
+    return "";
+}
+
 std::string Factura::getCodigo() {
     return codigo;
 }

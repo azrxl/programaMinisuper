@@ -64,6 +64,9 @@
     <Filter Include="Source Files\Objetos\Factura">
       <UniqueIdentifier>{c84ffe2f-0b79-4fbf-a7fe-105e072703ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Clases">
+      <UniqueIdentifier>{09a0f348-1751-48cf-b24a-d095e14fc928}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Factura.h">
       <Filter>Header Files\Objetos\Factura</Filter>
+    </ClInclude>
+    <ClInclude Include="Clases.h">
+      <Filter>Header Files\Clases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -116,7 +116,7 @@ public:
 
 		T& operator*() const {
 			if (!actual) {
-				throw std::out_of_range("Acceso inválido");
+				throw "nya";
 			}
 			return actual->dato;
 		}

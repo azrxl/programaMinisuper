@@ -143,6 +143,7 @@
     <ClInclude Include="Abarrote.h" />
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="Carne.h" />
+    <ClInclude Include="Clases.h" />
     <ClInclude Include="Conserva.h" />
     <ClInclude Include="Embutido.h" />
     <ClInclude Include="Excepciones.h" />

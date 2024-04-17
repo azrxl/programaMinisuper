@@ -12,6 +12,7 @@ public:
     double calcularIVA() const;
     double calcularTotal() const;
     std::string toString();
+    std::string guardar();
 private:
     std::string codigo;
     std::string nombre;
