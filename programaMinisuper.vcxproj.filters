@@ -43,9 +43,6 @@
     <Filter Include="Header Files\Objetos\Producto\Perecederos">
       <UniqueIdentifier>{93516d3a-7cbc-413d-ba7e-3ee612c286df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Objetos\Producto\Informacion">
-      <UniqueIdentifier>{ed1af806-3010-4838-8102-e1500925f0b3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Objetos\Producto\NoPerecederos">
       <UniqueIdentifier>{5291076b-9b63-4d10-ade0-f74e7dfb6576}</UniqueIdentifier>
     </Filter>
@@ -54,9 +51,6 @@
     </Filter>
     <Filter Include="Source Files\Objetos\Producto">
       <UniqueIdentifier>{6872d298-61e9-4aa3-a106-b442b5fb9d62}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Objetos\Producto\Informacion">
-      <UniqueIdentifier>{6206fa72-8abb-40ff-a5fd-3f1e6a905893}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Objetos\Producto\Perecederos">
       <UniqueIdentifier>{fde9ad75-3656-4594-9703-488be9b1fea8}</UniqueIdentifier>
@@ -81,17 +75,11 @@
     <ClCompile Include="Carne.cpp">
       <Filter>Source Files\Objetos\Producto\Perecederos</Filter>
     </ClCompile>
-    <ClCompile Include="Categoria.cpp">
-      <Filter>Source Files\Objetos\Producto\Informacion</Filter>
-    </ClCompile>
     <ClCompile Include="Conserva.cpp">
       <Filter>Source Files\Objetos\Producto\Conserva</Filter>
     </ClCompile>
     <ClCompile Include="Embutido.cpp">
       <Filter>Source Files\Objetos\Producto\Perecederos</Filter>
-    </ClCompile>
-    <ClCompile Include="Fecha.cpp">
-      <Filter>Source Files\Objetos\Producto\Informacion</Filter>
     </ClCompile>
     <ClCompile Include="Perecedero.cpp">
       <Filter>Source Files\Objetos\Producto\Perecederos</Filter>
@@ -127,12 +115,6 @@
     </ClInclude>
     <ClInclude Include="Abarrote.h">
       <Filter>Header Files\Objetos\Producto\Perecederos</Filter>
-    </ClInclude>
-    <ClInclude Include="Categoria.h">
-      <Filter>Header Files\Objetos\Producto\Informacion</Filter>
-    </ClInclude>
-    <ClInclude Include="Fecha.h">
-      <Filter>Header Files\Objetos\Producto\Informacion</Filter>
     </ClInclude>
     <ClInclude Include="Conserva.h">
       <Filter>Header Files\Objetos\Producto\NoPerecederos</Filter>

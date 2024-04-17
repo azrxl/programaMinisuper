@@ -18,12 +18,12 @@ double Factura::calcularSubtotal() {
     return subtotal;
 }
 
-double Factura::calcularIVA() {
+double Factura::calcularIVA() const {
     // Supongamos un IVA del 16%
     return subtotal * 0.16;
 }
 
-double Factura::calcularTotal() {
+double Factura::calcularTotal() const {
     return subtotal + iva;
 }
 

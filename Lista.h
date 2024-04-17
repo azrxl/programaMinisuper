@@ -97,11 +97,10 @@ public:
 		return s.str();
 	}
 
-	std::string cargar() const {
+	std::string guardar() const {
 		std::stringstream s;
-		Nodo* tmp = inicio;
-		while (tmp != nullptr) {
-			s << tmp->dato;
+		for (auto it = begin(); it != end(); ++it) {
+			s << (*it)->dato;
 		}
 	}
 

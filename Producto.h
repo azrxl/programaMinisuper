@@ -1,26 +1,30 @@
 #pragma once
 #include <string>
 #include <sstream>
-#include "Categoria.h"
-#include "Fecha.h"
 
 using std::string;
 
-class Producto
-	: public Categoria
-{
+class Producto {
 public:
 	Producto();
 	Producto(string, string, string, double, int, int, int, int, int, int);
 	virtual ~Producto();
-	int porcentajeGanancia();
+	int porcentajeGanancia() const;
 	virtual string toString() const = 0;
-	string getNombre();
-	string getCodigo();
-	double getPrecio();
+	string getNombre() const;
+	string getCodigo() const;
+	double getPrecio() const;
+	std::string getFecha() const;
 	void setPrecio(int precio);
 	void setExistencia(int existencia);
+	virtual string guardar() const;
+
 protected:
+	struct Fecha {
+		int dia;
+		int mes;
+		int anno;
+	};
 	string codigo;
 	string nombreComercial;
 	string descripcion;

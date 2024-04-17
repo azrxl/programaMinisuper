@@ -8,7 +8,7 @@ Archivo& Archivo::getArchivo()
 	return archivo;
 }
 
-void Archivo::guardarProductos(std::string nombre, const Lista<Producto>* lista)
+void Archivo::guardarProductos(std::string nombre, const Lista<Producto*>& lista)
 {
 	std::ofstream archivo;
 	archivo.open(nombre, std::ios::app);

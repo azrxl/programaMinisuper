@@ -12,21 +12,34 @@ Conserva::Conserva(string _codigo, string _nombreComercial, string _descripcion,
 {} 
 Conserva::~Conserva() {}
 
-bool Conserva::isEnvasado() const { return envasado; }
-
-string Conserva::toString() const 
-{
+string Conserva::toString() const {
     std::stringstream s;
-    s << "Código: " << codigo << "\n"
-      << "Nombre Comercial: " << nombreComercial << "\n"
-      << "Descripción: " << descripcion << "\n"
-      << "Precio: " << precio << "\n"
-      << "Categoría: " << categoria << "\n"
-      << "Existencia: " << existencia << "\n"
-      << "Límite: " << limite << "\n"
-      << "Envasado: " << (envasado ? "Sí" : "No") << "\n"
-      << "Fecha de ingreso: " << fecha.getFecha() << "\n";
-
+	s << "Código: " << codigo << "\n"
+		<< "Nombre Comercial: " << nombreComercial << "\n"
+		<< "Descripción: " << descripcion << "\n"
+		<< "Precio: " << precio << "\n"
+		<< "Categoría: " << categoria << "\n"
+		<< "Existencia: " << existencia << "\n"
+		<< "Límite: " << limite << "\n"
+		<< "Fecha de ingreso: " << getFecha() << "\n"
+        << "Envasado: " << (envasado ? "Sí" : "No") << "\n";
     return s.str();
 }
 
+
+string Conserva::guardar() const {
+	std::stringstream s;
+	s << codigo << '$'
+		<< nombreComercial << '$'
+		<< descripcion << '$'
+		<< std::to_string(precio) << '$'
+		<< std::to_string(categoria) << '$'
+		<< std::to_string(existencia) << '$'
+		<< std::to_string(limite) << '$'
+		<< fecha.dia << '$'
+		<< fecha.mes << '$'
+		<< fecha.anno << '$'
+		<< envasado << '$'
+		<< '\n';
+	return s.str();
+}

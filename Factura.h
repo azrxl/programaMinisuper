@@ -9,8 +9,8 @@ public:
     std::string getCodigo();
     std::string getNombre();
     double calcularSubtotal();
-    double calcularIVA();
-    double calcularTotal();
+    double calcularIVA() const;
+    double calcularTotal() const;
     std::string toString();
 private:
     std::string codigo;
