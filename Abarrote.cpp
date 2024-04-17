@@ -23,5 +23,22 @@ string Abarrote::toString() const
       << "Límite: " << limite << "\n"
       << "Fecha de ingreso: " << getFecha() << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n";
+
+    return s.str();
+}
+
+string Abarrote::guardar() const {
+    std::stringstream s;
+    s << codigo << '$'
+        << nombreComercial << '$'
+        << descripcion << '$'
+        << precio << '$'
+        << categoria << '$'
+        << existencia << '$'
+        << limite << '$'
+        << fecha.dia << '$'
+        << fecha.mes << '$'
+        << fecha.anno << '$'
+        << nombreEmpresa << '$';
     return s.str();
 }

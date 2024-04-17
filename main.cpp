@@ -3,6 +3,7 @@
 #include "Conserva.h"
 #include "Embutido.h"
 #include "Factura.h"
+#include "Archivo.h"
 
 int main()
 {
@@ -24,9 +25,7 @@ int main()
 	}
 
 	Factura fac("123456", l);*/
-	std::cout << ptr3->guardar();
-	std::cout << ptr3->toString();
-
-
+	
+	Archivo& arch = Archivo::getArchivo();
+	arch.guardarProductos("arch1",l);
 }
-

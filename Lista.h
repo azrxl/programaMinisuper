@@ -100,8 +100,9 @@ public:
 	std::string guardar() const {
 		std::stringstream s;
 		for (auto it = begin(); it != end(); ++it) {
-			s << (*it)->dato;
+			s << (*it)->guardar() << '\n';
 		}
+		return s.str();
 	}
 
 	Nodo* getInicio() { return inicio; }

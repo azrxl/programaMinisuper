@@ -39,7 +39,6 @@ string Conserva::guardar() const {
 		<< fecha.dia << '$'
 		<< fecha.mes << '$'
 		<< fecha.anno << '$'
-		<< envasado << '$'
-		<< '\n';
+		<< envasado << '$';
 	return s.str();
 }

@@ -17,7 +17,7 @@ public:
 	std::string getFecha() const;
 	void setPrecio(int precio);
 	void setExistencia(int existencia);
-	virtual string guardar() const;
+	virtual string guardar() const = 0;
 
 protected:
 	struct Fecha {

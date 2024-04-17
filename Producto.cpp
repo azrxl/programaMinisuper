@@ -53,18 +53,3 @@ string Producto::toString() const {
 	return s.str();
 }
 
-string Producto::guardar() const {
-	std::stringstream s;
-	s << codigo << '$'
-		<< nombreComercial << '$'
-		<< descripcion << '$'
-		<< std::to_string(precio) << '$'
-		<< std::to_string(categoria) << '$'
-		<< std::to_string(existencia) << '$'
-		<< std::to_string(limite) << '$'
-		<< fecha.dia << '$'
-		<< fecha.mes << '$'
-		<< fecha.anno << '$'
-		<< '\n';
-	return s.str();
-}

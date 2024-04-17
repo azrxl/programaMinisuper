@@ -10,6 +10,7 @@ public:
             double _peso, int dia, int mes, int anno, int diaVencimiento, int mesVencimiento, int annoVencimiento);
     virtual ~Abarrote();
     virtual string toString() const;
+    virtual string guardar() const;
 private:
     string nombreEmpresa;
 };

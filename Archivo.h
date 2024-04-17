@@ -6,8 +6,7 @@
 
 //Implementado con singleton
 
-class Archivo
-{
+class Archivo {
 public:
 	static Archivo& getArchivo();
 	void guardarProductos(std::string nombre, const Lista<Producto*>& lista);
@@ -15,6 +14,7 @@ public:
 	void cargarLista(std::string nombre);
 
 private:
+	std::string nombreArchivo;
 	Archivo();
 	Archivo(const Archivo&) = delete;
 	Archivo& operator=(const Archivo&) = delete;

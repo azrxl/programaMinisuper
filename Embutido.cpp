@@ -31,16 +31,16 @@ string Embutido::guardar() const {
     s << codigo << '$'
         << nombreComercial << '$'
         << descripcion << '$'
-        << std::to_string(precio) << '$'
-        << std::to_string(categoria) << '$'
-        << std::to_string(existencia) << '$'
-        << std::to_string(limite) << '$'
+        << marca << '$'
+        << precio << '$'
+        << categoria << '$'
+        << existencia << '$'
+        << limite << '$'
         << fecha.dia << '$'
         << fecha.mes << '$'
         << fecha.anno << '$'
         << vencimiento.dia << '$'
         << vencimiento.mes << '$'
-        << vencimiento.anno << '$'
-        << '\n';
+        << vencimiento.anno << '$';
     return s.str();
 }
