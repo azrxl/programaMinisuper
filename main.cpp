@@ -32,3 +32,8 @@ int main()
 	
 
 }
+
+
+//Interfaz es clase Frontera
+//Producto y factura es clase Entidad
+//Metodos de la interfaz son clase Control

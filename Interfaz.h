@@ -7,14 +7,20 @@ public:
 
 private:
     void mostrarMenuPrincipal();
-    void menuMantenimiento();
-    void menuFacturas();
-    void menuProductos();
-    void menuVentas();
-    void menuReportar();
+        void menuMantenimiento();
+        void menuFacturas();
+        void menuProductos();
+        void menuVentas();
+        void menuReportar();
     int obtenerOpcion(int min, int max);
     void gestionarFactura(const std::string& accion);
     void gestionarProducto(const std::string& accion);
+    void agregarProducto();
+        void agregarConserva();
+        void agregarAbarrote();
+        void agregarCarne();
+        void agregarEmbutido();
+    void agregarFactura();
 
 	Lista<Producto*> listaProductos;
 	Lista<Factura*> listaFacturas;

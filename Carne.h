@@ -14,6 +14,9 @@ public:
     virtual ~Carne();
     virtual string toString() const;
     virtual string guardar() const;
+    void setAnimal(string);
+    void setParte(string);
+
 private:
     string nombreAnimal;
     string parteAnimal;

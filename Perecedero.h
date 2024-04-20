@@ -11,6 +11,7 @@ public:
     virtual string getVencimiento() const;
     virtual string toString() const = 0;
     virtual string guardar() const = 0;
+    void setFechaVencimiento(int, int, int);
 protected:
     Fecha vencimiento;
     bool nacional;

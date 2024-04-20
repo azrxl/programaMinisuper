@@ -52,3 +52,6 @@ string Carne::guardar() const {
         << vencimiento.anno << '$';
     return s.str();
 }
+
+void Carne::setAnimal(string animal) { nombreAnimal = animal; }
+void Carne::setParte(string parte) { parteAnimal = parte; }

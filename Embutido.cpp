@@ -22,7 +22,8 @@ string Embutido::toString() const {
       << "Existencia: " << existencia << "\n"
       << "Límite: " << limite << "\n"
       << "Fecha de ingreso: " << getFecha() << "\n"
-      << "Fecha de vencimiento: " << getVencimiento() << "\n";
+      << "Fecha de vencimiento: " << getVencimiento() << "\n"
+      << "Empacado con tripa: " << (empaqueTripa ? "Sí" : "No") << "\n";
     return s.str();
 }
 
@@ -41,6 +42,9 @@ string Embutido::guardar() const {
         << fecha.anno << '$'
         << vencimiento.dia << '$'
         << vencimiento.mes << '$'
-        << vencimiento.anno << '$';
+        << vencimiento.anno << '$'
+        << empaqueTripa << '$';
     return s.str();
 }
+
+void Embutido::setEmpaque(bool empaque) { empaqueTripa = empaque; }

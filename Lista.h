@@ -69,19 +69,17 @@ public:
 		return false;
 	}
 
-	bool modificarProducto(int opcion, std::string id, int valor) {
-		Nodo* tmp = inicio;
-		while (tmp != nullptr) {
-			if (tmp->dato->getCodigo() == id || tmp->dato->getNombre() == id) {
-				if (opcion == 1) {
-					tmp->dato->setPrecio(valor);
+	bool modificarProducto(int opcion, std::string id, double valor) {
+		for(auto i = begin(); i != end(); ++i) {
+			if ((*i)->getCodigo() == id || (*i)->getNombre() == id) {
+				switch (opcion) {
+				case 1:
+					(*i)->setPrecio(valor);
+					return true;
+				case 2:
+					(*i)->setExistencia(valor);
 					return true;
 				}
-				if (opcion == 2) {
-					tmp->dato->setExistencia(valor);
-					return true;
-				}
-				tmp = tmp->next;
 			}
 		}
 		return false;

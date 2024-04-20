@@ -10,6 +10,7 @@ public:
     virtual ~Conserva();
     string toString() const;
     virtual string guardar() const;
+    void setEnvasado(bool _envasado);
 private:
     bool envasado;
 };

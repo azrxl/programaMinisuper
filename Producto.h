@@ -15,8 +15,15 @@ public:
 	string getCodigo() const;
 	double getPrecio() const;
 	std::string getFecha() const;
-	void setPrecio(int precio);
+	void setPrecio(double precio);
 	void setExistencia(int existencia);
+	void setFecha(int dia, int mes, int anno);
+	void setCodigo(std::string _codigo);
+	void setNombreComercial(std::string _nombreComercial);
+	void setDescripcion(std::string _descripcion);
+	void setCategoria(int _categoria);
+	void setLimite(int _limite);
+
 	virtual string guardar() const = 0;
 
 protected:

@@ -1,6 +1,8 @@
 #pragma once
 #include "Carne.h"
 
+#define PI 3.14
+
 class Embutido : public Carne {
 public:
     Embutido();
@@ -10,6 +12,7 @@ public:
     virtual ~Embutido();
     virtual string toString() const;
     virtual string guardar() const;
+    void setEmpaque(bool empaque);
 private:
     string marca;
     bool empaqueTripa;

@@ -20,3 +20,9 @@ string Perecedero::getVencimiento() const {
 	return std::to_string(vencimiento.dia) + '/' + std::to_string(vencimiento.mes) + '/' + std::to_string(vencimiento.anno);
 }
 
+void Perecedero::setFechaVencimiento(int dia, int mes, int anno) {
+	vencimiento.dia = dia;
+	vencimiento.mes = mes;
+	vencimiento.anno = anno;
+}
+

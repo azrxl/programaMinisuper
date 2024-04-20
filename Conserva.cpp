@@ -32,13 +32,14 @@ string Conserva::guardar() const {
 	s << codigo << '$'
 		<< nombreComercial << '$'
 		<< descripcion << '$'
-		<< std::to_string(precio) << '$'
-		<< std::to_string(categoria) << '$'
-		<< std::to_string(existencia) << '$'
-		<< std::to_string(limite) << '$'
+		<< precio << '$'
+		<< categoria << '$'
+		<< existencia << '$'
+		<< limite << '$'
 		<< fecha.dia << '$'
 		<< fecha.mes << '$'
 		<< fecha.anno << '$'
 		<< envasado << '$';
 	return s.str();
 }
+void Conserva::setEnvasado(bool _envasado) { envasado = _envasado; }
