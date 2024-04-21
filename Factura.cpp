@@ -12,7 +12,7 @@ Factura::Factura(std::string numero_factura, Lista<Producto*>& productos) {
 
 double Factura::calcularSubtotal() {
     double subtotal = 0;
-    for (auto it = productos.begin(); it != productos.end(); ++it) {
+    for (auto it = productos.begin(); it != productos.end(); ++it, --(*it)) {
         subtotal += (*it)->getPrecio();
     }
     return subtotal;
@@ -27,9 +27,10 @@ double Factura::calcularTotal() const {
     return subtotal + iva;
 }
 
-std::string Factura::toString() {
+std::string Factura::toString() const {
     std::stringstream s;
     s << "Número de Factura: " << codigo << '\n';
+    s << "Cedula del cliente: " << nombre << '\n';
     s << "Descripción de los productos:" << '\n';
     for (auto it = productos.begin(); it != productos.end(); ++it) {
         s << " - " << (*it)->getNombre() << ": $" << (*it)->getPrecio() << '\n';
@@ -40,14 +41,7 @@ std::string Factura::toString() {
     return s.str();
 }
 
-std::string Factura::guardar() {
-    return "";
-}
-
-std::string Factura::getCodigo() {
-    return codigo;
-}
-
-std::string Factura::getNombre() {
-    return nombre;
-}
+std::string Factura::guardar() const { return ""; }
+std::string Factura::getCodigo() const { return codigo; }
+std::string Factura::getNombre() const { return nombre; }
+double Factura::getTotal() const { return total; }

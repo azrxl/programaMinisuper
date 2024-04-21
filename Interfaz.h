@@ -11,7 +11,7 @@ private:
         void menuFacturas();
         void menuProductos();
         void menuVentas();
-        void menuReportar();
+    void menuReportar();
     int obtenerOpcion(int min, int max);
     void gestionarFactura(const std::string& accion);
     void gestionarProducto(const std::string& accion);

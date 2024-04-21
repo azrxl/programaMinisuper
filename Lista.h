@@ -10,9 +10,8 @@ private:
 		Nodo* next;
 	};
 	Nodo* inicio;
-
 public:
-	Lista(): inicio{ nullptr } {}
+	Lista() : inicio{ nullptr } {}
 
 	Lista(const Lista& otra) : inicio{ nullptr } {
 		for (auto it = otra.begin(); it != otra.end(); ++it) {
@@ -34,10 +33,10 @@ public:
 			inicio = inicio->next;
 			delete tmp;
 			tmp = inicio;
-		}	
+		}
 	}
 
-	Lista& agregar(T dato)	{
+	Lista& agregar(T dato) {
 		Nodo* tmp = new Nodo;
 		tmp->dato = dato;
 		tmp->next = inicio;
@@ -70,27 +69,80 @@ public:
 	}
 
 	bool modificarProducto(int opcion, std::string id, double valor) {
-		for(auto i = begin(); i != end(); ++i) {
-			if ((*i)->getCodigo() == id || (*i)->getNombre() == id) {
+		for (auto it = begin(); it != end(); ++it) {
+			if ((*it)->getCodigo() == id || (*it)->getNombre() == id) {
 				switch (opcion) {
 				case 1:
-					(*i)->setPrecio(valor);
+					(*it)->setPrecio(valor);
 					return true;
 				case 2:
-					(*i)->setExistencia(valor);
+					(*it)->setExistencia((int)valor);
 					return true;
 				}
 			}
 		}
 		return false;
 	}
+	void ordenar() {
+		if (!inicio || !inicio->next) {
+			return;
+		}
+		bool intercambio = true;
+		while (intercambio) {
+			intercambio = false;
+			Nodo* actual = inicio;
+			Nodo* siguiente = inicio->next;
+			while (actual->next) {
+				if (actual->dato->getTotal() < siguiente->dato->getTotal()) {
+					intercambiar(actual, siguiente);
+					intercambio = true;
+				}
+				actual = siguiente;
+				siguiente = siguiente->next;
+			}
+		}
+	}
 
-	std::string toString() {
+	std::string toString(int opcion) {
 		std::stringstream s;
-		Nodo* tmp = inicio;
-		while (tmp != nullptr) {
-			s << tmp->dato->toString() << "\n\n";
-			tmp = tmp->next;
+		switch (opcion) {
+		case 1:
+			for (auto it = begin(); it != end();++it) {
+				s << (*it)->toString() << "\n-----------------------------\n";
+			}
+			break;
+		case 3:
+			for (auto it = begin(); it != end();++it) {
+				if ((*it)->getExistencia() < (*it)->getLimite()) {
+					s << (*it)->toString() << "\n-----------------------------\n";
+				}
+			}
+			break;
+		case 5:
+			ordenar();
+			int cont = 0;
+			for (auto it = begin(); it != end() && cont < 5;++it, ++cont) {
+				s << (*it)->toString() << "\n-----------------------------\n";
+			}
+			break;
+		}
+		return s.str();
+	}
+	std::string toString(int opcion, int valor) {
+		std::stringstream s;
+		for (auto it = begin(); it != end();++it) {
+			if ((*it)->getCategoria() == valor) {
+				s << (*it)->toString() << "\n-----------------------------\n";
+			}
+		}
+		return s.str();
+	}
+	std::string toString(std::string valor) {
+		std::stringstream s;
+		for (auto it = begin(); it != end();++it) {
+			if ((*it)->getNombre() == valor || (*it)->getCodigo() == valor) {
+				s << (*it)->toString() << "\n-----------------------------\n";
+			}
 		}
 		return s.str();
 	}
@@ -114,7 +166,7 @@ public:
 
 		T& operator*() const {
 			if (!actual) {
-				throw "nya";
+				throw "Excepcion de memoria";
 			}
 			return actual->dato;
 		}
@@ -136,5 +188,37 @@ public:
 	Iterador end() const {
 		return Iterador(nullptr);
 	}
-};
+	private:
+	void intercambiar(Nodo* n1, Nodo* n2) {
+		if (!n1 || !n2 || n1 == n2) return;
+		Nodo* prevN1 = nullptr;
+		Nodo* prevN2 = nullptr;
+		Nodo* tmp = inicio;
+		while (tmp != nullptr && tmp->next != n1 && tmp->next != n2) tmp = tmp->next;
 
+		if (!tmp) return;
+
+		if (tmp->next == n1) {
+			prevN1 = tmp;
+			while (tmp && tmp->next != n2) tmp = tmp->next;
+			if (!tmp) return;
+			prevN2 = tmp;
+		}
+		else {
+			prevN2 = tmp;
+			while (tmp && tmp->next != n1) tmp = tmp->next;
+			if (!tmp) return;
+			prevN1 = tmp;
+		}
+
+		if (prevN1) prevN1->next = n2;
+		else inicio = n2;
+
+		if (prevN2) prevN2->next = n1;
+		else inicio = n1;
+
+		tmp = n1->next;
+		n1->next = n2->next;
+		n2->next = tmp;
+	}
+};

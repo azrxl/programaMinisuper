@@ -14,7 +14,10 @@ public:
 	string getNombre() const;
 	string getCodigo() const;
 	double getPrecio() const;
+	int getCategoria() const;
+	int getLimite() const;
 	std::string getFecha() const;
+	int getTotal() const;
 	void setPrecio(double precio);
 	void setExistencia(int existencia);
 	void setFecha(int dia, int mes, int anno);
@@ -23,8 +26,9 @@ public:
 	void setDescripcion(std::string _descripcion);
 	void setCategoria(int _categoria);
 	void setLimite(int _limite);
-
 	virtual string guardar() const = 0;
+
+	Producto& operator--();
 
 protected:
 	struct Fecha {

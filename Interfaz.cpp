@@ -19,7 +19,7 @@ void Interfaz::menu() {
         }
     }
 }
-    void Interfaz::mostrarMenuPrincipal() {
+void Interfaz::mostrarMenuPrincipal() {
         std::cout << "------ MENU ------\n"
             << "1. Mantenimiento\n"
             << "2. Ventas\n"
@@ -27,8 +27,7 @@ void Interfaz::menu() {
             << "4. Salir\n"
             << "-------------------\n";
     }
-
-    void Interfaz::menuMantenimiento() {
+void Interfaz::menuMantenimiento() {
         int opcion = 0;
         while (opcion != 3) {
             std::cout << "------ MANTENIMIENTO ------\n"
@@ -47,8 +46,7 @@ void Interfaz::menu() {
             }
         }
     }
-
-    void Interfaz::menuFacturas() {
+void Interfaz::menuFacturas() {
         int opcion = 0;
         while (opcion != 3) {
             std::cout << "------ FACTURAS ------\n"
@@ -67,8 +65,7 @@ void Interfaz::menu() {
             }
         }
     }
-
-    void Interfaz::menuProductos() {
+void Interfaz::menuProductos() {
         int opcion = 0;
         while (opcion != 4) {
             std::cout << "------ PRODUCTOS ------\n"
@@ -89,10 +86,10 @@ void Interfaz::menu() {
                 gestionarProducto("modificar");
                 break;
             }
+            system("cls");
         }
     }
-
-    void Interfaz::menuVentas() {
+void Interfaz::menuVentas() {
         int opcion = 0;
         while (opcion != 2) {
             std::cout << "------ VENTAS ------" << '\n'
@@ -107,8 +104,7 @@ void Interfaz::menu() {
             }
         }
     }
-
-    void Interfaz::menuReportar() {
+void Interfaz::menuReportar() {
         int opcion = 0;
         while (opcion != 6) {
             std::cout << "------ REPORTAR ------" << '\n'
@@ -122,66 +118,58 @@ void Interfaz::menu() {
             system("cls");
             switch (opcion) {
             case 1:
-                std::cout << listaProductos.toString();
-                system("pause");
+                std::cout << listaProductos.toString(opcion);
                 break;
             case 2:
                 int categoria;
-                std::cout << "Ingrese la categoria del producto: "; std::cin >> categoria;
+                std::cout << "Ingrese la categoria del producto: "; categoria = obtenerOpcion(1,3);
                 std::cout << "\nMostrando todos los productos con categoria " << categoria << ": \n";
-               // listaProductos.toString(categoria);
-                system("pause");
+                std::cout << listaProductos.toString(opcion, categoria);
                 break;
             case 3:
-                int limite;
-                std::cout << "Ingrese el limite a reportar: "; std::cin >> limite;
-                std::cout << "\nMostrando todos los productos por debajo del limite de " << limite << ": \n";
-               // listaProductos.toString(limite);
-                system("pause");
+                std::cout << "\nMostrando todos los productos por debajo del limite:";
+                std::cout << listaProductos.toString(opcion);
                 break;
             case 4: {
                 std::string cedula;
-                std::cout << "Ingrese la cedula del cliente: "; std::cin >> cedula;
-                std::cout << "\nMostrando la factura del cliente " << cedula << ": \n";
-               // listaProductos.toString(cedula);
-                system("pause");
+                std::cout << "Ingrese la cedula del cliente o el numero de factura a reportar: "; std::cin >> cedula;
+                std::cout << "\nMostrando la factura:\n";
+                std::cout << listaProductos.toString(cedula);
                 break;
             }
             case 5:
                 std::cout << "\nMostrando los 5 mejores clientes:\n";
-               // listaProductos.toString(0);
-                system("pause");
+                std::cout << listaProductos.toString(opcion);
                 break;
             }
+            system("pause");
+            system("cls");
         }
     }
-
-    int Interfaz::obtenerOpcion(int min, int max) {
-        int opcion;
+int Interfaz::obtenerOpcion(int min, int max) {
+    int opcion;
+    std::cin >> opcion;
+    while (opcion < min || opcion > max) {
+        std::cout << "Opción inválida. Introduce una opción válida: ";
         std::cin >> opcion;
-        while (opcion < min || opcion > max) {
-            std::cout << "Opción inválida. Introduce una opción válida: ";
-            std::cin >> opcion;
-        }
-        return opcion;
     }
-
-    void Interfaz::gestionarFactura(const std::string& accion) {
-        std::string codigo;
-        std::cout << "Ingrese la cedula del cliente o el numero de factura a " << accion << ": ";
-        std::cin >> codigo;
-        if (accion == "agregar") {
-
-        }
-        if (accion == "eliminar") {
-
-        }
-        if (accion == "actualizar") {
-
-        }
+    return opcion;
+}
+void Interfaz::gestionarFactura(const std::string& accion) {
+    std::string codigo;
+    std::cout << "Ingrese la cedula del cliente o el numero de factura a " << accion << ": ";
+    std::cin >> codigo;
+    if (accion == "agregar") {
+        
     }
+    if (accion == "eliminar") {
 
-    void Interfaz::gestionarProducto(const std::string& accion) {
+    }
+    if (accion == "actualizar") {
+
+    }
+}
+void Interfaz::gestionarProducto(const std::string& accion) {
         if (accion == "ingresar") {
             agregarProducto();
         }
@@ -217,8 +205,7 @@ void Interfaz::menu() {
             system("cls");
         }
     }
-
-    void Interfaz::agregarProducto() {
+void Interfaz::agregarProducto() {
         int opcion = 0;
         while (opcion != 5) {
             std::cout << "------ INGRESO DE PRODUCTO ------" << '\n'
@@ -245,8 +232,7 @@ void Interfaz::menu() {
             }
         }
     }
-
-    void Interfaz::agregarConserva() {
+void Interfaz::agregarConserva() {
         std::string aux1;
         int aux2;
         double aux3;
@@ -270,7 +256,7 @@ void Interfaz::menu() {
 
         listaProductos.agregar(c);
     } 
-    void Interfaz::agregarAbarrote() {
+void Interfaz::agregarAbarrote() {
         std::string aux1;
         int aux2;
         double aux3;
@@ -296,7 +282,7 @@ void Interfaz::menu() {
 
         listaProductos.agregar(c);
     }
-    void Interfaz::agregarCarne() {
+void Interfaz::agregarCarne() {
         std::string aux1;
         int aux2;
         double aux3;
@@ -323,7 +309,7 @@ void Interfaz::menu() {
 
         listaProductos.agregar(c);
     }
-    void Interfaz::agregarEmbutido() {
+void Interfaz::agregarEmbutido() {
         std::string aux1;
         int aux2;
         double aux3;
@@ -351,3 +337,28 @@ void Interfaz::menu() {
 
         listaProductos.agregar(c);
     }
+
+void Interfaz::agregarFactura() {
+    std::string aux1;
+    int aux2;
+    double aux3;
+    bool aux4;
+    Conserva* c = new Conserva;
+
+    std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
+    std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
+    std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
+    std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
+    std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
+    std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
+    std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
+    std::cout << "\nFecha de ingreso:\n";
+    std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
+    std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
+    std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
+    c->setFecha(dia, mes, anno);
+    std::cout << "\nEnvasado (1 para true, 0 para false): "; std::cin >> aux4;
+    c->setEnvasado(aux4);
+
+    listaProductos.agregar(c);
+}

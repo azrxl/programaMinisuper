@@ -29,6 +29,9 @@ int Producto::porcentajeGanancia() const {
 string Producto::getNombre() const { return nombreComercial; }
 string Producto::getCodigo() const { return codigo; }
 double Producto::getPrecio() const { return precio; }
+int Producto::getCategoria() const { return categoria; }
+int Producto::getLimite() const { return limite; }
+int Producto::getTotal() const { return 0; }
 
 std::string Producto::getFecha() const {
 	return std::to_string(fecha.dia) + "/" + std::to_string(fecha.mes) + "/" + std::to_string(fecha.anno);
@@ -58,4 +61,9 @@ void Producto::setFecha(int dia, int mes, int anno) {
 	fecha.dia = dia;
 	fecha.mes = mes;
 	fecha.anno = anno;
+}
+
+Producto& Producto::operator--() {
+	existencia -= 1;
+	return *this;
 }
