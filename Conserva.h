@@ -6,7 +6,7 @@ class Conserva :
 {
 public:
     Conserva();
-    Conserva(string _codigo, string _nombreComercial, string _descripcion, double _precio, int _categoria, int _existencia, int _limite, bool _envasado, int dia, int mes, int anno);
+    Conserva(string _codigo, string _nombreComercial, double _precio, int _categoria, int _existencia, int _limite, bool _envasado);
     virtual ~Conserva();
     string toString() const;
     virtual string guardar() const;

@@ -3,43 +3,43 @@
 Conserva::Conserva()
 	: Producto(), envasado{ false }
 {
-    descripcion = "conserva";
+    descripcion = "Conserva";
+	id = 1;
 }
-Conserva::Conserva(string _codigo, string _nombreComercial, string _descripcion, 
-    double _precio, int _categoria, int _existencia, int _limite, bool _envasado, int dia, int mes, int anno)
-	: Producto(_codigo,  _nombreComercial,  _descripcion, _precio,  _categoria,  _existencia,  _limite, dia, mes, anno), 
+Conserva::Conserva(string _codigo, string _nombreComercial, double _precio, int _categoria, 
+	int _existencia, int _limite, bool _envasado)
+	: Producto(_codigo,  _nombreComercial, _precio,  _categoria,  _existencia,  _limite), 
 	  envasado { _envasado }
-{} 
+{
+	descripcion = "Conserva";
+	id = 1;
+} 
 Conserva::~Conserva() {}
 
 string Conserva::toString() const {
     std::stringstream s;
-	s << "Código: " << codigo << "\n"
+	s << "Codigo: " << codigo << "\n"
 		<< "Nombre Comercial: " << nombreComercial << "\n"
-		<< "Descripción: " << descripcion << "\n"
+		<< "Descripcion: " << descripcion << "\n"
 		<< "Precio: " << precio << "\n"
-		<< "Categoría: " << categoria << "\n"
+		<< "Categoria: " << categoria << "\n"
 		<< "Existencia: " << existencia << "\n"
-		<< "Límite: " << limite << "\n"
+		<< "Limite: " << limite << "\n"
 		<< "Fecha de ingreso: " << getFecha() << "\n"
-        << "Envasado: " << (envasado ? "Sí" : "No") << "\n";
+        << "Envasado: " << (envasado ? "Si" : "No") << "\n";
     return s.str();
 }
-
-
 string Conserva::guardar() const {
 	std::stringstream s;
-	s << codigo << '$'
+	s << id << '$'
+		<< codigo << '$'
 		<< nombreComercial << '$'
-		<< descripcion << '$'
 		<< precio << '$'
 		<< categoria << '$'
 		<< existencia << '$'
 		<< limite << '$'
-		<< fecha.dia << '$'
-		<< fecha.mes << '$'
-		<< fecha.anno << '$'
-		<< envasado << '$';
+		<< envasado << '$'
+		<< fecha << '$';
 	return s.str();
 }
 void Conserva::setEnvasado(bool _envasado) { envasado = _envasado; }

@@ -3,31 +3,36 @@
 Carne::Carne()
     : Perecedero(), nombreAnimal{ "null" }, parteAnimal{ "null" } {
     descripcion = "Carne";
+    id = 3;
 }
 
-Carne::Carne(string _nombreAnimal, string _parteAnimal, string _codigo, string _nombreComercial, string _descripcion, double _precio, int _categoria, int _existencia, int _limite, bool _nacional, double _peso, int dia, int mes, int anno, int diaV, int mesV, int annoV)
-    : Perecedero(_codigo, _nombreComercial, _descripcion, _precio, _categoria, _existencia, _limite, _nacional, _peso, dia, mes, anno, diaV, mesV, annoV),
+Carne::Carne(string _nombreAnimal, string _parteAnimal, string _codigo, string _nombreComercial, double _precio, int _categoria, int _existencia, int _limite, int diaV, int mesV, int annoV)
+    : Perecedero(_codigo, _nombreComercial, _precio, _categoria, _existencia, _limite, diaV, mesV, annoV),
     nombreAnimal{ _nombreAnimal },
-    parteAnimal{ _parteAnimal }
-{}
+    parteAnimal{ _parteAnimal } {
+    descripcion = "Carne";
+    id = 3;
+}
 
-Carne::Carne(string _codigo, string _nombreComercial, string _descripcion, double _precio, int _categoria, int _existencia, int _limite, bool _nacional, double _peso, int dia, int mes, int anno, int diaV, int mesV, int annoV)
-    : Perecedero(_codigo, _nombreComercial, _descripcion, _precio, _categoria, _existencia, _limite, _nacional, _peso, dia, mes, anno, diaV, mesV, annoV)
-{}
+Carne::Carne(string _codigo, string _nombreComercial, double _precio, int _categoria, int _existencia, int _limite, int diaV, int mesV, int annoV)
+    : Perecedero(_codigo, _nombreComercial, _precio, _categoria, _existencia, _limite, diaV, mesV, annoV) {
+    descripcion = "Carne";
+    id = 3;
+}
 
 Carne::~Carne() {}
 
 string Carne::toString() const {
     std::stringstream s;
-    s << "Código: " << codigo << "\n"
+    s << "Codigo: " << codigo << "\n"
       << "Nombre Comercial: " << nombreComercial << "\n"
       << "Nombre Animal: " << nombreAnimal << "\n"
       << "Parte Animal: " << parteAnimal << "\n"
-      << "Descripción: " << descripcion << "\n"
+      << "Descripcion: " << descripcion << "\n"
       << "Precio: " << precio << "\n"
-      << "Categoría: " << categoria << "\n"
+      << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
-      << "Límite: " << limite << "\n"
+      << "Limite: " << limite << "\n"
       << "Fecha de ingreso: " << getFecha() << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n";
     return s.str();
@@ -35,21 +40,19 @@ string Carne::toString() const {
 
 string Carne::guardar() const {
     std::stringstream s;
-    s << codigo << '$'
+    s << id << '$'
+        << codigo << '$'
         << nombreComercial << '$'
         << nombreAnimal << '$'
         << parteAnimal << '$'
-        << descripcion << '$'
         << precio << '$'
         << categoria << '$'
         << existencia << '$'
         << limite << '$'
-        << fecha.dia << '$'
-        << fecha.mes << '$'
-        << fecha.anno << '$'
-        << vencimiento.dia << '$'
-        << vencimiento.mes << '$'
-        << vencimiento.anno << '$';
+        << fecha << '$'
+        << dia << '$'
+        << mes << '$'
+        << anno << '$';
     return s.str();
 }
 

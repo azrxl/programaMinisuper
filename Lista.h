@@ -41,7 +41,6 @@ public:
 		tmp->dato = dato;
 		tmp->next = inicio;
 		inicio = tmp;
-
 		return *this;
 	}
 
@@ -102,10 +101,38 @@ public:
 			}
 		}
 	}
-
+	T buscar(std::string id) {
+		for (auto it = begin();it != end();++it) {
+			if ((*it)->getCodigo() == id) {
+				return (*it);
+			}
+		}
+		return nullptr;
+	}
+	int cantidad() const {
+		int i = 0;
+		for (auto it = begin();it != end();++it, ++i);
+		return i;
+	}
+	bool isEmpty() const {
+		return !inicio;
+	}
+	bool outOfStock() {
+		int i = 0;
+		for (auto it = begin();it != end();++it) 
+			if ((*it)->getExistencia() < (*it)->getLimite()) ++i;
+		return i == cantidad();
+	}
 	std::string toString(int opcion) {
 		std::stringstream s;
 		switch (opcion) {
+		case 0:
+			for (auto it = begin(); it != end();++it) {
+				if ((*it)->getExistencia() < (*it)->getLimite())
+					s << "Agotado -> ";
+				s << (*it)->getCodigo() << " - " << (*it)->getNombreComercial() << ": " << (*it)->getPrecio() << '$' << '\n';
+			}
+			break;
 		case 1:
 			for (auto it = begin(); it != end();++it) {
 				s << (*it)->toString() << "\n-----------------------------\n";

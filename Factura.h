@@ -5,9 +5,13 @@
 
 class Factura {
 public:
-    Factura(std::string numero_factura, Lista<Producto*>& productos);
+    Factura(std::string numero_factura, std::string nombre, Lista<Producto*>& productos);
     std::string getCodigo() const;
     std::string getNombre() const;
+    std::string getNombreComercial() const;
+    double getPrecio() const;
+    int getExistencia() const;
+    int getLimite() const;
     double getTotal() const;
     double calcularSubtotal();
     double calcularIVA() const;

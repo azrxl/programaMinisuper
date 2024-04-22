@@ -1,29 +1,34 @@
 #include "Embutido.h"
 #include <sstream>
 
-Embutido::Embutido() : Carne(), marca{ "null" }, empaqueTripa{ false } {}
+Embutido::Embutido() : Carne(), marca{ "null" }, empaqueTripa{ false } {
+    descripcion = "Embutido";
+    id = 4;
+}
 
-Embutido::Embutido(string _marca, bool _empaqueTripa, string _codigo, string _nombreComercial, string _descripcion, double _precio, int _categoria, int _existencia, int _limite, bool _nacional, double _peso, int dia, int mes, int anno, int diaV, int mesV, int annoV)
-    : Carne(_codigo, _nombreComercial, _descripcion, _precio, _categoria, _existencia, _limite, _nacional, _peso, dia, mes, anno, diaV, mesV, annoV),
-    marca{ _marca }, empaqueTripa {_empaqueTripa }
-{}
+Embutido::Embutido(string _codigo, string _nombreComercial, string _marca, bool _empaqueTripa, double _precio, int _categoria, int _existencia, int _limite, int diaV, int mesV, int annoV)
+    : Carne(_codigo, _nombreComercial, _precio, _categoria, _existencia, _limite, diaV, mesV, annoV),
+    marca{ _marca }, empaqueTripa {_empaqueTripa } {
+    descripcion = "Embutido";
+    id = 4;
+}
 
 Embutido::~Embutido() {}
 
 string Embutido::toString() const {
     std::stringstream s;
-    s << "Código: " << codigo << "\n"
+    s << "Codigo: " << codigo << "\n"
       << "Nombre Comercial: " << nombreComercial << "\n"
       << "Marca: " << marca << "\n"
-      << "Descripción: " << descripcion << "\n"
+      << "Descripcion: " << descripcion << "\n"
       << "Empacado: " << (empaqueTripa ? "Si" : "No") << "\n"
       << "Precio: " << precio << "\n"
-      << "Categoría: " << categoria << "\n"
+      << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
-      << "Límite: " << limite << "\n"
+      << "Limite: " << limite << "\n"
       << "Fecha de ingreso: " << getFecha() << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n"
-      << "Empacado con tripa: " << (empaqueTripa ? "Sí" : "No") << "\n";
+      << "Empacado con tripa: " << (empaqueTripa ? "Si" : "No") << "\n";
     return s.str();
 }
 
@@ -31,20 +36,16 @@ string Embutido::guardar() const {
     std::stringstream s;
     s << codigo << '$'
         << nombreComercial << '$'
-        << descripcion << '$'
-        << marca << '$'
+        << marca << '$'   
+        << empaqueTripa << '$'
         << precio << '$'
         << categoria << '$'
         << existencia << '$'
         << limite << '$'
-        << fecha.dia << '$'
-        << fecha.mes << '$'
-        << fecha.anno << '$'
-        << vencimiento.dia << '$'
-        << vencimiento.mes << '$'
-        << vencimiento.anno << '$'
-        << empaqueTripa << '$';
+        << fecha << '$'
+        << dia << '$'
+        << mes << '$'
+        << anno << '$';
     return s.str();
 }
-
 void Embutido::setEmpaque(bool empaque) { empaqueTripa = empaque; }

@@ -134,12 +134,12 @@ void Interfaz::menuReportar() {
                 std::string cedula;
                 std::cout << "Ingrese la cedula del cliente o el numero de factura a reportar: "; std::cin >> cedula;
                 std::cout << "\nMostrando la factura:\n";
-                std::cout << listaProductos.toString(cedula);
+                std::cout << listaFacturas.toString(cedula);
                 break;
             }
             case 5:
                 std::cout << "\nMostrando los 5 mejores clientes:\n";
-                std::cout << listaProductos.toString(opcion);
+                std::cout << listaFacturas.toString(opcion);
                 break;
             }
             system("pause");
@@ -157,10 +157,8 @@ int Interfaz::obtenerOpcion(int min, int max) {
 }
 void Interfaz::gestionarFactura(const std::string& accion) {
     std::string codigo;
-    std::cout << "Ingrese la cedula del cliente o el numero de factura a " << accion << ": ";
-    std::cin >> codigo;
     if (accion == "agregar") {
-        
+        agregarFactura();
     }
     if (accion == "eliminar") {
 
@@ -239,20 +237,13 @@ void Interfaz::agregarConserva() {
         bool aux4;
         Conserva* c = new Conserva;
 
-        std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
+        std::cout << "\nCodigo: "; std::cin >> aux1; c->setCodigo(aux1);
         std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
-        std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
         std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
-        std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
+        std::cout << "\nCategoria: "; std::cin >> aux2; c->setCategoria(aux2);
         std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
-        std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
-        std::cout << "\nFecha de ingreso:\n";
-        std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
-        std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
-        std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
-        c->setFecha(dia, mes, anno);
-        std::cout << "\nEnvasado (1 para true, 0 para false): "; std::cin >> aux4;
-        c->setEnvasado(aux4);
+        std::cout << "\nLimite: "; std::cin >> aux2; c->setLimite(aux2);
+        std::cout << "\nEnvasado (1 para true, 0 para false): "; std::cin >> aux4; c->setEnvasado(aux4);
 
         listaProductos.agregar(c);
     } 
@@ -261,24 +252,16 @@ void Interfaz::agregarAbarrote() {
         int aux2;
         double aux3;
         Abarrote* c = new Abarrote;
-
-        std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
-        std::cout << "\nNombre Comercial: "; std::cin >> aux1; c->setNombreComercial(aux1);
+        std::cout << "\nCodigo: "; std::cin >> aux1; c->setCodigo(aux1);
+        std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
         std::cout << "\nNombre Empresa: "; std::cin >> aux1; c->setNombreComercial(aux1);
-        std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
         std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
-        std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
+        std::cout << "\nCategoria: "; std::cin >> aux2; c->setCategoria(aux2);
         std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
-        std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
-        std::cout << "\nFecha de ingreso:\n";
-        std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
-        std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
-        std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
-        c->setFecha(dia, mes, anno);
-        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; dia = aux2;
-        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; mes = aux2;
-        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; anno = aux2;
-        c->setFechaVencimiento(dia, mes, anno);
+        std::cout << "\nLimite: "; std::cin >> aux2; c->setLimite(aux2);
+        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; c->setDia(aux2);
+        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; c->setMes(aux2);
+        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; c->setAnno(aux2);
 
         listaProductos.agregar(c);
     }
@@ -288,24 +271,17 @@ void Interfaz::agregarCarne() {
         double aux3;
         Carne* c = new Carne;
 
-        std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
-        std::cout << "\nNombre Comercial: "; std::cin >> aux1; c->setNombreComercial(aux1);
+        std::cout << "\nCodigo: "; std::cin >> aux1; c->setCodigo(aux1);
+        std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
         std::cout << "\nNombre Animal: "; std::cin >> aux1; c->setAnimal(aux1);
         std::cout << "\nParte Animal: "; std::cin >> aux1; c->setParte(aux1);
-        std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
         std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
-        std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
+        std::cout << "\nCategoria: "; std::cin >> aux2; c->setCategoria(aux2);
         std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
-        std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
-        std::cout << "\nFecha de ingreso:\n";
-        std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
-        std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
-        std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
-        c->setFecha(dia, mes, anno);
-        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; dia = aux2;
-        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; mes = aux2;
-        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; anno = aux2;
-        c->setFechaVencimiento(dia, mes, anno);
+        std::cout << "\nLimite: "; std::cin >> aux2; c->setLimite(aux2);
+        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; c->setDia(aux2);
+        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; c->setMes(aux2);
+        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; c->setAnno(aux2);
 
         listaProductos.agregar(c);
     }
@@ -316,49 +292,73 @@ void Interfaz::agregarEmbutido() {
         bool aux4;
         Embutido* c = new Embutido;
 
-        std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
-        std::cout << "\nNombre Comercial: "; std::cin >> aux1; c->setNombreComercial(aux1);
+        std::cout << "\nCodigo: "; std::cin >> aux1; c->setCodigo(aux1);
+        std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
         std::cout << "\nMarca: "; std::cin >> aux1; c->setNombreComercial(aux1);
-        std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
-        std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
-        std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
-        std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
-        std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
-        std::cout << "\nFecha de ingreso:\n";
-        std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
-        std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
-        std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
-        c->setFecha(dia, mes, anno);
-        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; dia = aux2;
-        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; mes = aux2;
-        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; anno = aux2;
-        c->setFechaVencimiento(dia, mes, anno);
         std::cout << "\nEmpacado con tripa  (1 para true, 0 para false): "; std::cin >> aux4; c->setEmpaque(aux4);
-
+        std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
+        std::cout << "\nCategoria: "; std::cin >> aux2; c->setCategoria(aux2);
+        std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
+        std::cout << "\nLimite: "; std::cin >> aux2; c->setLimite(aux2);
+        std::cout << "\nDia Vencimiento: "; std::cin >> aux2; c->setDia(aux2);
+        std::cout << "\nMes Vencimiento: "; std::cin >> aux2; c->setMes(aux2);
+        std::cout << "\nAnno Vencimiento: "; std::cin >> aux2; c->setAnno(aux2);
+       
         listaProductos.agregar(c);
     }
 
 void Interfaz::agregarFactura() {
-    std::string aux1;
-    int aux2;
-    double aux3;
-    bool aux4;
-    Conserva* c = new Conserva;
+    if (listaProductos.isEmpty()) {
+        std::cout << "No hay productos disponibles, volviendo al menu..\n";
+        system("pause");
+        system("cls");
+        return; // Salir del método si no hay productos disponibles
+    }
 
-    std::cout << "\nCódigo: "; std::cin >> aux1; c->setCodigo(aux1);
-    std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
-    std::cout << "\nDescripción: "; std::cin >> aux1; c->setDescripcion(aux1);
-    std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
-    std::cout << "\nCategoría: "; std::cin >> aux2; c->setCategoria(aux2);
-    std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
-    std::cout << "\nLímite: "; std::cin >> aux2; c->setLimite(aux2);
-    std::cout << "\nFecha de ingreso:\n";
-    std::cout << "\nDia: "; std::cin >> aux2; int dia = aux2;
-    std::cout << "\nMes: "; std::cin >> aux2; int mes = aux2;
-    std::cout << "\nAnno: "; std::cin >> aux2; int anno = aux2;
-    c->setFecha(dia, mes, anno);
-    std::cout << "\nEnvasado (1 para true, 0 para false): "; std::cin >> aux4;
-    c->setEnvasado(aux4);
+    std::string cedula;
+    unsigned int codigo = 0;
+    bool repetir = true, agregado = false;
+    Lista<Producto*> productosFactura; 
 
-    listaProductos.agregar(c);
+    std::cout << "Ingrese la cedula del cliente: "; std::cin >> cedula;
+    system("cls");
+
+    while (repetir) {
+        if (listaProductos.outOfStock()) {
+            std::cout << "No quedan productos disponibles\n";
+            break;
+        }
+        std::cout << "Mostrando productos disponibles:\n" << listaProductos.toString(0);
+        std::cout << "Digite '0' para terminar de agregar productos..\n\n ";
+
+        int producto;
+        std::cout << "Ingrese el codigo del producto a agregar: "; std::cin >> producto;
+        if (producto == 0)
+            break; // Salir del bucle si el usuario ingresa 0
+
+        Producto* dato = listaProductos.buscar(std::to_string(producto));
+        if (!dato) {
+            std::cout << "Producto no encontrado, intente de nuevo..\n";
+            system("pause");
+            system("cls");
+            continue; // Volver al inicio del bucle
+        }
+
+        productosFactura.agregar(--dato); // Agregar el producto a la factura
+        agregado = true;
+    }
+    if (agregado) {
+        Factura* factura = new Factura(std::to_string(++codigo), cedula, productosFactura);
+        system("cls");
+        std::cout << "Procesando factura..\n" << factura->toString();
+        system("pause");
+        system("cls");
+
+        delete factura; // Liberar la memoria asignada para la factura
+    }
+    else {
+        std::cout << "No se ingreso ningun producto, volviendo al menu..\n";
+        system("pause");
+        system("cls");
+    }
 }

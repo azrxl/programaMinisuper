@@ -1,26 +1,28 @@
 #include "Abarrote.h"
 
 Abarrote::Abarrote()
-    : Perecedero(), nombreEmpresa{ "null" }
-{}
-Abarrote::Abarrote(string _nombreEmpresa, string _codigo, string _nombreComercial, string _descripcion, double _precio, int _categoria, int _existencia, int _limite, bool _nacional, double _peso, int dia, int mes, int anno, int diaV, int mesV, int annoV)
-    : Perecedero(_codigo, _nombreComercial, _descripcion, _precio, _categoria, _existencia, _limite, _nacional, _peso, dia, mes, anno, diaV, mesV, annoV),
-    nombreEmpresa{ _nombreEmpresa } 
-{}
+    : Perecedero(), nombreEmpresa{ "null" } {
+    descripcion = "Abarrote";
+    id = 2;
+}
+Abarrote::Abarrote(string _nombreEmpresa, string _codigo, string _nombreComercial, double _precio, int _categoria, int _existencia, int _limite, int diaV, int mesV, int annoV)
+    : Perecedero(_codigo, _nombreComercial, _precio, _categoria, _existencia, _limite, diaV, mesV, annoV), nombreEmpresa{ _nombreEmpresa } {
+    descripcion = "Abarrote";
+    id = 2;
+}
 
 Abarrote::~Abarrote() {}
 
-string Abarrote::toString() const
-{
+string Abarrote::toString() const {
     std::stringstream s;
-    s << "Código: " << codigo << "\n"
+    s << "Codigo: " << codigo << "\n"
       << "Nombre Comercial: " << nombreComercial << "\n"
       << "Nombre Empresa: " << nombreEmpresa << "\n"
-      << "Descripción: " << descripcion << "\n"
+      << "Descripcion: " << descripcion << "\n"
       << "Precio: " << precio << "\n"
-      << "Categoría: " << categoria << "\n"
+      << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
-      << "Límite: " << limite << "\n"
+      << "Limite: " << limite << "\n"
       << "Fecha de ingreso: " << getFecha() << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n";
 
@@ -29,16 +31,17 @@ string Abarrote::toString() const
 
 string Abarrote::guardar() const {
     std::stringstream s;
-    s << codigo << '$'
+    s << id << '$'
+        << codigo << '$'
         << nombreComercial << '$'
-        << descripcion << '$'
+        << nombreEmpresa << '$'
         << precio << '$'
         << categoria << '$'
         << existencia << '$'
         << limite << '$'
-        << fecha.dia << '$'
-        << fecha.mes << '$'
-        << fecha.anno << '$'
-        << nombreEmpresa << '$';
+        << fecha << '$'
+        << dia << '$'
+        << mes << '$'
+        << anno << '$';
     return s.str();
 }
