@@ -1,11 +1,11 @@
 #pragma once
-#include "Lista.h"
-#include "Producto.h"
+#include "Clases.h"
 #include "sstream"
 
 class Factura {
 public:
     Factura(std::string numero_factura, std::string nombre, Lista<Producto*>& productos);
+    Factura();
     std::string getCodigo() const;
     std::string getNombre() const;
     std::string getNombreComercial() const;

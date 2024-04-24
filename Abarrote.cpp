@@ -13,6 +13,8 @@ Abarrote::Abarrote(string _nombreEmpresa, string _codigo, string _nombreComercia
 
 Abarrote::~Abarrote() {}
 
+void Abarrote::setNombreEmpresa(string _nombre) { nombreEmpresa = _nombre; }
+
 string Abarrote::toString() const {
     std::stringstream s;
     s << "Codigo: " << codigo << "\n"
@@ -20,10 +22,11 @@ string Abarrote::toString() const {
       << "Nombre Empresa: " << nombreEmpresa << "\n"
       << "Descripcion: " << descripcion << "\n"
       << "Precio: " << precio << "\n"
+      << "Ganancia aproximada: $" << getGanancia() << '\n'
       << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
       << "Limite: " << limite << "\n"
-      << "Fecha de ingreso: " << getFecha() << "\n"
+      << "Fecha de ingreso: " << fecha << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n";
 
     return s.str();

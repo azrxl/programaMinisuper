@@ -19,6 +19,10 @@ void Interfaz::menu() {
         }
     }
 }
+void Interfaz::agregar(Producto* lol)
+{
+    listaProductos.agregar(lol);
+}
 void Interfaz::mostrarMenuPrincipal() {
         std::cout << "------ MENU ------\n"
             << "1. Mantenimiento\n"
@@ -116,31 +120,64 @@ void Interfaz::menuReportar() {
                 << "6. Retornar" << '\n';
             opcion = obtenerOpcion(1, 6);
             system("cls");
+            if (listaProductos.isEmpty() && listaFacturas.isEmpty()) {
+                std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                system("pause");
+                system("cls");
+                return;
+            }
             switch (opcion) {
             case 1:
-                std::cout << listaProductos.toString(opcion);
+                if (listaProductos.isEmpty()) {
+                    std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                }
+                else {
+                    std::cout << listaProductos.toString(opcion);
+                }
                 break;
             case 2:
                 int categoria;
                 std::cout << "Ingrese la categoria del producto: "; categoria = obtenerOpcion(1,3);
-                std::cout << "\nMostrando todos los productos con categoria " << categoria << ": \n";
-                std::cout << listaProductos.toString(opcion, categoria);
+                if (!listaProductos.buscar(categoria)) {
+                    std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                }
+                else {
+                    std::cout << "\nMostrando todos los productos con categoria " << categoria << ": \n";
+                    std::cout << listaProductos.toString(opcion, categoria);
+                }
                 break;
             case 3:
-                std::cout << "\nMostrando todos los productos por debajo del limite:";
-                std::cout << listaProductos.toString(opcion);
+                if (!listaProductos.buscar()) {
+                    std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                }
+                else {
+                    std::cout << "\nMostrando todos los productos por debajo del limite:";
+                    std::cout << listaProductos.toString(opcion);
+                }
                 break;
             case 4: {
                 std::string cedula;
                 std::cout << "Ingrese la cedula del cliente o el numero de factura a reportar: "; std::cin >> cedula;
-                std::cout << "\nMostrando la factura:\n";
-                std::cout << listaFacturas.toString(cedula);
+                if (!listaFacturas.buscar(cedula)) {
+                    std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                }
+                else {
+                    std::cout << "\nMostrando la factura:\n";
+                    std::cout << listaFacturas.toString(cedula);
+                }               
                 break;
             }
             case 5:
-                std::cout << "\nMostrando los 5 mejores clientes:\n";
-                std::cout << listaFacturas.toString(opcion);
+                if (listaFacturas.isEmpty()) {
+                    std::cout << "No hay elementos disponibles, volviendo al menu..\n";
+                }
+                else {
+                    std::cout << "\nMostrando los 5 mejores clientes:\n";
+                    std::cout << listaFacturas.toString(opcion);
+                }
                 break;
+            case 6:
+                return;
             }
             system("pause");
             system("cls");
@@ -156,48 +193,85 @@ int Interfaz::obtenerOpcion(int min, int max) {
     return opcion;
 }
 void Interfaz::gestionarFactura(const std::string& accion) {
-    std::string codigo;
     if (accion == "agregar") {
         agregarFactura();
     }
-    if (accion == "eliminar") {
-
-    }
-    if (accion == "actualizar") {
-
+    else {
+        if (listaFacturas.isEmpty()) {
+            std::cout << "No hay facturas disponibles, volviendo al menu..\n";
+            system("pause");
+            system("cls");
+            return;
+        }
+        std::string codigo;
+        std::cout << "Mostrando facturas disponibles:\n" << listaFacturas.toString(1);
+        std::cout << "Ingrese la cedula o el numero de factura a " << accion << ": "; std::cin >> codigo;
+        if (accion == "eliminar") {
+            if (listaFacturas.eliminar(codigo)) {
+                std::cout << "\nFactura eliminada con exito, presione cualquier tecla para retornar.\n";
+            }
+            else {
+                std::cout << "\nFallo al eliminar factura, presione cualquier tecla para retornar.\n";
+            }
+        }
+        if (accion == "actualizar") {
+            if (listaFacturas.actualizarFactura(codigo)) {
+                std::cout << "\nFactura actualizada con exito, presione cualquier tecla para retornar.\n";
+            }
+            else {
+                std::cout << "\nFallo al actualizar factura, presione cualquier tecla para retornar.\n";
+            }
+        }
+        system("pause");
+        system("cls");
     }
 }
 void Interfaz::gestionarProducto(const std::string& accion) {
         if (accion == "ingresar") {
             agregarProducto();
+            system("cls");
         }
-        if (accion == "eliminar") {
-            std::string codigo;
+        else {
+            if (listaProductos.isEmpty()) {
+                std::cout << "No hay productos disponibles, volviendo al menu..\n";
+                system("pause");
+                system("cls");
+                return; 
+            }
+            std::cout << "Mostrando productos disponibles:\n" << listaProductos.toString(0);
             std::cout << "Ingrese el codigo o el nombre comercial del producto a " << accion << ": ";
-            std::cin >> codigo;
-            listaProductos.eliminar(codigo);
-        }
-        if (accion == "modificar") {
-            std::string codigo;
-            int codigo2;
-            double codigo3 = 0.0;
-            std::cout << "Ingrese el codigo o el nombre comercial del producto a " << accion << ": "; std::cin >> codigo;
-            std::cout << "\n1. Modificar precio" 
-                      << "\n2. Modificar existencias\n"; 
-            codigo2 = obtenerOpcion(1,2);
-            switch (codigo2) {
-            case 1:
-              std::cout << "\nModificar precio a: "; std::cin >> codigo3;
-              break;
-            case 2:
-                std::cout << "\nModificar existencias a: "; std::cin >> codigo3;
-                break;
+            if (accion == "eliminar") {
+                std::string codigo;
+                std::cin >> codigo;
+                if (listaProductos.eliminar(codigo)) {
+                    std::cout << "\nProducto eliminado con exito, presione cualquier tecla para retornar.\n";
+                }
+                else {
+                    std::cout << "\nFallo al eliminar producto, presione cualquier tecla para retornar.\n";
+                }
             }
-            if (listaProductos.modificarProducto(codigo2, codigo, codigo3)) {
-                std::cout << "\nProducto actualizado con exito, presione cualquier tecla para retornar.\n";
-            }
-            else {
-                std::cout << "\nFallo al actualizar producto, presione cualquier tecla para retornar.\n";
+            if (accion == "modificar") {
+                std::string codigo;
+                int codigo2;
+                double codigo3 = 0.0;
+                std::cin >> codigo;
+                std::cout << "\n1. Modificar precio"
+                    << "\n2. Modificar existencias\n";
+                codigo2 = obtenerOpcion(1, 2);
+                switch (codigo2) {
+                case 1:
+                    std::cout << "\nModificar precio a: "; std::cin >> codigo3;
+                    break;
+                case 2:
+                    std::cout << "\nModificar existencias a: "; std::cin >> codigo3;
+                    break;
+                }
+                if (listaProductos.modificarProducto(codigo2, codigo, codigo3)) {
+                    std::cout << "\nProducto actualizado con exito, presione cualquier tecla para retornar.\n";
+                }
+                else {
+                    std::cout << "\nFallo al actualizar producto, presione cualquier tecla para retornar.\n";
+                }
             }
             system("pause");
             system("cls");
@@ -254,7 +328,7 @@ void Interfaz::agregarAbarrote() {
         Abarrote* c = new Abarrote;
         std::cout << "\nCodigo: "; std::cin >> aux1; c->setCodigo(aux1);
         std::cout << "\nNombre Comercial: "; std::cin >> aux1;  c->setNombreComercial(aux1);
-        std::cout << "\nNombre Empresa: "; std::cin >> aux1; c->setNombreComercial(aux1);
+        std::cout << "\nNombre Empresa: "; std::cin >> aux1; c->setNombreEmpresa(aux1);
         std::cout << "\nPrecio: "; std::cin >> aux3; c->setPrecio(aux3);
         std::cout << "\nCategoria: "; std::cin >> aux2; c->setCategoria(aux2);
         std::cout << "\nExistencia: "; std::cin >> aux2; c->setExistencia(aux2);
@@ -314,7 +388,6 @@ void Interfaz::agregarFactura() {
         system("cls");
         return; // Salir del método si no hay productos disponibles
     }
-
     std::string cedula;
     unsigned int codigo = 0;
     bool repetir = true, agregado = false;
@@ -322,10 +395,12 @@ void Interfaz::agregarFactura() {
 
     std::cout << "Ingrese la cedula del cliente: "; std::cin >> cedula;
     system("cls");
-
     while (repetir) {
         if (listaProductos.outOfStock()) {
-            std::cout << "No quedan productos disponibles\n";
+            std::cout << "Mostrando productos disponibles:\n" << listaProductos.toString(0);
+            std::cout << "No quedan productos disponibles, realizando la factura..\n";
+            system("pause");
+            system("cls");
             break;
         }
         std::cout << "Mostrando productos disponibles:\n" << listaProductos.toString(0);
@@ -343,18 +418,18 @@ void Interfaz::agregarFactura() {
             system("cls");
             continue; // Volver al inicio del bucle
         }
-
-        productosFactura.agregar(--dato); // Agregar el producto a la factura
+        productosFactura.agregar(dato); // Agregar el producto a la factura
         agregado = true;
+        listaProductos.actualizar(std::to_string(producto));
     }
     if (agregado) {
         Factura* factura = new Factura(std::to_string(++codigo), cedula, productosFactura);
         system("cls");
         std::cout << "Procesando factura..\n" << factura->toString();
+        std::cout << "Presione cualquier tecla para pagar y continuar..\n\n ";
         system("pause");
         system("cls");
-
-        delete factura; // Liberar la memoria asignada para la factura
+        listaFacturas.agregar(factura);
     }
     else {
         std::cout << "No se ingreso ningun producto, volviendo al menu..\n";

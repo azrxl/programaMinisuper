@@ -22,10 +22,11 @@ string Conserva::toString() const {
 		<< "Nombre Comercial: " << nombreComercial << "\n"
 		<< "Descripcion: " << descripcion << "\n"
 		<< "Precio: " << precio << "\n"
+		<< "Ganancia aproximada: $" << getGanancia() << '\n'
 		<< "Categoria: " << categoria << "\n"
 		<< "Existencia: " << existencia << "\n"
 		<< "Limite: " << limite << "\n"
-		<< "Fecha de ingreso: " << getFecha() << "\n"
+		<< "Fecha de ingreso: " << fecha
         << "Envasado: " << (envasado ? "Si" : "No") << "\n";
     return s.str();
 }

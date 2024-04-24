@@ -11,8 +11,8 @@ public:
     virtual string toString() const;
     virtual string guardar() const;
     void setEmpaque(bool empaque);
+    void setMarca(string marca);
 private:
     string marca;
     bool empaqueTripa;
 };
-

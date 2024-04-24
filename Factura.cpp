@@ -2,14 +2,14 @@
 #include "Factura.h"
 #include <iostream>
 
-Factura::Factura(std::string numero_factura, std::string nombre, Lista<Producto*>& productos) {
-    this->nombre = nombre;
-    this->codigo = numero_factura;
-    this->productos = productos;
-    this->subtotal = calcularSubtotal();
-    this->iva = calcularIVA();
-    this->total = calcularTotal();
+Factura::Factura(std::string numero_factura, std::string _nombre, Lista<Producto*>& _productos) : nombre(_nombre),
+codigo (numero_factura), productos(_productos) {
+    subtotal = calcularSubtotal();
+    iva = calcularIVA();
+    total = calcularTotal();
 }
+
+Factura::Factura() : nombre(""), codigo(""), subtotal(0.0), iva(0), total(0.0), productos() {}
 
 double Factura::calcularSubtotal() {
     double subtotal = 0;
@@ -30,19 +30,23 @@ double Factura::calcularTotal() const {
 
 std::string Factura::toString() const {
     std::stringstream s;
+    int cantidad = 0;
     s << "Numero de Factura: " << codigo << '\n';
     s << "Cedula del cliente: " << nombre << '\n';
     s << "Descripcion de los productos:" << '\n';
-    for (auto it = productos.begin(); it != productos.end(); ++it) {
+    for (auto it = productos.begin(); it != productos.end(); ++it, ++cantidad) {
         s << " - " << (*it)->getNombre() << ": $" << (*it)->getPrecio() << '\n';
     }
+    s << "Cantidad de productos: " << cantidad << '\n';
     s << "Subtotal: $" << subtotal << '\n';
     s << "IVA: $" << iva << '\n';
     s << "Total a pagar: $" << total << '\n';
     return s.str();
 }
+std::string Factura::guardar() const {
+    std::stringstream s;
 
-std::string Factura::guardar() const { return ""; }
+}
 std::string Factura::getCodigo() const { return codigo; }
 std::string Factura::getNombre() const { return nombre; }
 double Factura::getTotal() const { return total; }

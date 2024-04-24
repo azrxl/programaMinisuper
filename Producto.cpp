@@ -2,14 +2,15 @@
 
 Producto::Producto()
 	: codigo{ "null" }, nombreComercial{ "null" }, descripcion{ "null" },
-	precio{ 0.0 }, categoria{ -1 }, existencia{ 0 }, limite{ 0 }, id{ 0 } 
-{
-	fecha = getFecha();
+	precio{ 0.0 }, categoria{ -1 }, existencia{ 0 }, limite{ 0 }, id{ 0 } {
+	fecha = obtenerFecha();
 }
 
 Producto::Producto(string _codigo, string _nombreComercial, double _precio, int _categoria, int _existencia, int _limite)
 	: codigo{ _codigo }, nombreComercial{ _nombreComercial }, descripcion{ "" }, id{ 0 },
-	precio{ _precio }, categoria{ _categoria }, existencia{ _existencia }, limite{ _limite } {}
+	precio{ _precio }, categoria{ _categoria }, existencia{ _existencia }, limite{ _limite } {
+	fecha = obtenerFecha();
+}
 
 Producto::~Producto() {}
 
@@ -23,6 +24,7 @@ int Producto::porcentajeGanancia() const {
 	return 0;
 }
 
+double Producto::getGanancia() const { return precio * porcentajeGanancia() / 100; }
 string Producto::getNombre() const { return nombreComercial; }
 string Producto::getNombreComercial() const { return nombreComercial; }
 string Producto::getCodigo() const { return codigo; }
@@ -32,9 +34,7 @@ int Producto::getLimite() const { return limite; }
 int Producto::getTotal() const { return 0; }
 int Producto::getID() const { return id; }
 int Producto::getExistencia() const { return existencia; }
-string Producto::getFecha() const {
-	return obtenerFecha();
-}
+string Producto::getFecha() const { return fecha; }
 
 string Producto::toString() const {
 	std::stringstream s;
@@ -42,10 +42,11 @@ string Producto::toString() const {
 	  << "Nombre Comercial: " << nombreComercial << "\n"
    	  << "Descripcion: " << descripcion << "\n"
 	  << "Precio: " << precio << "\n"
+	  << "Ganancia aproximada: $" << getGanancia() << '\n'
 	  << "Categoria: " << categoria << "\n"
 	  << "Existencia: " << existencia << "\n"
 	  << "Limite: " << limite << "\n"
-	  << "Fecha de ingreso: " << getFecha() << "\n";
+	  << "Fecha de ingreso: " << fecha << "\n";
 	return s.str();
 }
 
@@ -54,13 +55,9 @@ void Producto::setNombreComercial(string _nombreComercial) { nombreComercial = _
 void Producto::setCategoria(int _categoria) { categoria = _categoria; }
 void Producto::setLimite(int _limite) { limite = _limite; }
 void Producto::setFecha(string _fecha) { fecha = _fecha; }
+void Producto::actualizarExistencia() { existencia -= 1; }
 void Producto::setPrecio(double _precio) { precio = _precio; }
 void Producto::setExistencia(int _existencia) { existencia = _existencia; }
-
-Producto& Producto::operator--() {
-	existencia -= 1;
-	return *this;
-}
 
 char* Producto::obtenerFecha() const {
 	auto ahora = std::chrono::system_clock::now();

@@ -13,6 +13,7 @@ public:
 	Producto(string, string, double, int, int, int);
 	virtual ~Producto();
 	int porcentajeGanancia() const;
+	double getGanancia() const;
 	virtual string toString() const = 0;
 	string getNombre() const;
 	string getNombreComercial() const;
@@ -31,9 +32,8 @@ public:
 	void setCategoria(int _categoria);
 	void setLimite(int _limite);
 	void setFecha(string _fecha);
+	void actualizarExistencia();
 	virtual string guardar() const = 0;
-
-	Producto& operator--();
 
 protected:
 	int id;
@@ -48,4 +48,3 @@ protected:
 private:
 	char* obtenerFecha() const;
 };
-

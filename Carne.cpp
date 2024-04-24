@@ -30,10 +30,11 @@ string Carne::toString() const {
       << "Parte Animal: " << parteAnimal << "\n"
       << "Descripcion: " << descripcion << "\n"
       << "Precio: " << precio << "\n"
+      << "Ganancia aproximada: $" << getGanancia() << '\n'
       << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
       << "Limite: " << limite << "\n"
-      << "Fecha de ingreso: " << getFecha() << "\n"
+      << "Fecha de ingreso: " << fecha << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n";
     return s.str();
 }
@@ -55,6 +56,5 @@ string Carne::guardar() const {
         << anno << '$';
     return s.str();
 }
-
 void Carne::setAnimal(string animal) { nombreAnimal = animal; }
 void Carne::setParte(string parte) { parteAnimal = parte; }

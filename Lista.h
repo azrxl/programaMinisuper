@@ -45,8 +45,9 @@ public:
 	}
 
 	bool eliminar(std::string codigo) { //Eliminar por codigo de producto o nombre, y eliminar factura por su numero
+		if (!inicio) return false;
 		Nodo* tmp = inicio;
-		if (inicio->dato->getCodigo() == codigo || inicio->dato->getNombre() == codigo) {
+		if (tmp->dato->getCodigo() == codigo || tmp->dato->getNombre() == codigo) {
 			inicio = inicio->next;
 			delete tmp;
 			return true;
@@ -54,13 +55,13 @@ public:
 		else {
 			Nodo* anterior = nullptr;
 			while (tmp != nullptr) {
-				if (tmp->next->dato->getCodigo() == codigo || tmp->next->dato->getNombre() == codigo) {
-					anterior = tmp;
-					tmp = tmp->next;
-					anterior->next = tmp->next;
+				if (tmp->dato->getCodigo() == codigo || tmp->dato->getNombre() == codigo) {
+					if (anterior)
+						anterior->next = tmp->next;
 					delete tmp;
 					return true;
 				}
+				anterior = tmp;
 				tmp = tmp->next;
 			}
 		}
@@ -82,6 +83,7 @@ public:
 		}
 		return false;
 	}
+	bool actualizarFactura(std::string id) { return true; }
 	void ordenar() {
 		if (!inicio || !inicio->next) {
 			return;
@@ -101,9 +103,34 @@ public:
 			}
 		}
 	}
-	T buscar(std::string id) {
+	bool actualizar(std::string id) {
 		for (auto it = begin();it != end();++it) {
 			if ((*it)->getCodigo() == id) {
+				(*it)->actualizarExistencia();
+				return true;
+			}
+		}
+		return false;
+	}
+	T buscar(std::string id) {
+		for (auto it = begin();it != end();++it) {
+			if ((*it)->getCodigo() == id || (*it)->getNombre() == id) {
+				return (*it);
+			}
+		}
+		return nullptr;
+	}
+	T buscar(int id) {
+		for (auto it = begin();it != end();++it) {
+			if ((*it)->getCategoria() == id) {
+				return (*it);
+			}
+		}
+		return nullptr;
+	}
+	T buscar() {
+		for (auto it = begin();it != end();++it) {
+			if ((*it)->getExistencia() < (*it)->getLimite()) {
 				return (*it);
 			}
 		}
@@ -129,19 +156,19 @@ public:
 		case 0:
 			for (auto it = begin(); it != end();++it) {
 				if ((*it)->getExistencia() < (*it)->getLimite())
-					s << "Agotado -> ";
+					s << "AGOTADO -> ";
 				s << (*it)->getCodigo() << " - " << (*it)->getNombreComercial() << ": " << (*it)->getPrecio() << '$' << '\n';
 			}
 			break;
 		case 1:
 			for (auto it = begin(); it != end();++it) {
-				s << (*it)->toString() << "\n-----------------------------\n";
+				s << "\n-----------------------------\n" << (*it)->toString();
 			}
 			break;
 		case 3:
 			for (auto it = begin(); it != end();++it) {
 				if ((*it)->getExistencia() < (*it)->getLimite()) {
-					s << (*it)->toString() << "\n-----------------------------\n";
+					s << "\n-----------------------------\n" << (*it)->toString();
 				}
 			}
 			break;
@@ -149,7 +176,7 @@ public:
 			ordenar();
 			int cont = 0;
 			for (auto it = begin(); it != end() && cont < 5;++it, ++cont) {
-				s << (*it)->toString() << "\n-----------------------------\n";
+				s << "\n-----------------------------\n" << (*it)->toString();
 			}
 			break;
 		}
@@ -159,7 +186,7 @@ public:
 		std::stringstream s;
 		for (auto it = begin(); it != end();++it) {
 			if ((*it)->getCategoria() == valor) {
-				s << (*it)->toString() << "\n-----------------------------\n";
+				s << "\n-----------------------------\n" << (*it)->toString();
 			}
 		}
 		return s.str();
@@ -168,7 +195,7 @@ public:
 		std::stringstream s;
 		for (auto it = begin(); it != end();++it) {
 			if ((*it)->getNombre() == valor || (*it)->getCodigo() == valor) {
-				s << (*it)->toString() << "\n-----------------------------\n";
+				s << "\n-----------------------------\n" << (*it)->toString();
 			}
 		}
 		return s.str();

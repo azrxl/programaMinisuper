@@ -4,7 +4,7 @@
 class Interfaz {
 public:
     void menu();
-
+    void agregar(Producto*);
 private:
     void mostrarMenuPrincipal();
         void menuMantenimiento();

@@ -28,9 +28,6 @@
     <Filter Include="Header Files\Interfaz\Archivos">
       <UniqueIdentifier>{fc71767a-76b8-4536-9ad9-ff7082804148}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Interfaz\Excepciones">
-      <UniqueIdentifier>{e014a794-2931-433b-9d81-443c74a8c059}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Interfaz\Archivos">
       <UniqueIdentifier>{73986dab-3cb2-453a-826e-507e6caa9c79}</UniqueIdentifier>
     </Filter>
@@ -92,9 +89,6 @@
     </ClCompile>
     <ClCompile Include="Interfaz.cpp">
       <Filter>Source Files\Interfaz</Filter>
-    </ClCompile>
-    <ClCompile Include="Excepciones.cpp">
-      <Filter>Source Files\Interfaz\Excepciones</Filter>
     </ClCompile>
     <ClCompile Include="Archivo.cpp">
       <Filter>Source Files\Interfaz\Archivos</Filter>

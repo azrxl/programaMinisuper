@@ -23,10 +23,11 @@ string Embutido::toString() const {
       << "Descripcion: " << descripcion << "\n"
       << "Empacado: " << (empaqueTripa ? "Si" : "No") << "\n"
       << "Precio: " << precio << "\n"
+      << "Ganancia aproximada: $" << getGanancia() << '\n'
       << "Categoria: " << categoria << "\n"
       << "Existencia: " << existencia << "\n"
       << "Limite: " << limite << "\n"
-      << "Fecha de ingreso: " << getFecha() << "\n"
+      << "Fecha de ingreso: " << fecha << "\n"
       << "Fecha de vencimiento: " << getVencimiento() << "\n"
       << "Empacado con tripa: " << (empaqueTripa ? "Si" : "No") << "\n";
     return s.str();
@@ -49,3 +50,4 @@ string Embutido::guardar() const {
     return s.str();
 }
 void Embutido::setEmpaque(bool empaque) { empaqueTripa = empaque; }
+void Embutido::setMarca(string _marca) { marca = _marca; }
