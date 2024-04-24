@@ -2,9 +2,9 @@
 
 void Interfaz::menu() {
     int opcion = 0;
-    while (opcion != 4) {
+    while (opcion != 5) {
         mostrarMenuPrincipal();
-        opcion = obtenerOpcion(1, 4);
+        opcion = obtenerOpcion(1, 5);
         system("cls");
         switch (opcion) {
         case 1:
@@ -16,19 +16,22 @@ void Interfaz::menu() {
         case 3:
             menuReportar();
             break;
+        case 4:
+            cargar();
+            break;
+        case 5:
+            guardar();
+            break;
         }
     }
-}
-void Interfaz::agregar(Producto* lol)
-{
-    listaProductos.agregar(lol);
 }
 void Interfaz::mostrarMenuPrincipal() {
         std::cout << "------ MENU ------\n"
             << "1. Mantenimiento\n"
             << "2. Ventas\n"
             << "3. Reportar\n"
-            << "4. Salir\n"
+            << "4. Cargar archivo\n"
+            << "5. Salir\n"
             << "-------------------\n";
     }
 void Interfaz::menuMantenimiento() {
@@ -183,6 +186,33 @@ void Interfaz::menuReportar() {
             system("cls");
         }
     }
+void Interfaz::guardar() {
+    int opcion;
+    std::cout << "Desea guardar los cambios?\n"
+        << "1. Si\n"
+        << "2. No\n";
+    opcion = obtenerOpcion(1, 2);
+    
+    if (opcion == 2) return;
+    std::string nombre;
+    std::cout << "Ingrese el nombre del archivo: "; std::cin >> nombre;
+    Archivo arch(nombre);
+    arch.guardarProductos(listaProductos);
+    arch.guardarFacturas(listaFacturas);
+}
+void Interfaz::cargar() {
+    std::string nombre;
+    std::cout << "Ingrese el nombre del archivo: "; std::cin >> nombre;
+    Archivo arch(nombre);
+    if (arch.cargarProductos(listaProductos) && arch.cargarFacturas(listaFacturas)) {
+        std::cout << "Informacion recuperada correctamente.\n";
+    }
+    else {
+        std::cout << "No se pudo cargar el archivo, volviendo al menu..\n";
+    }
+    system("pause");
+    system("cls");
+}
 int Interfaz::obtenerOpcion(int min, int max) {
     int opcion;
     std::cin >> opcion;
@@ -301,7 +331,12 @@ void Interfaz::agregarProducto() {
             case 4:
                 agregarEmbutido();
                 break;
+            case 5:
+                return;
             }
+            std::cout << "Producto agregado con exito.\n";
+            system("pause");
+            system("cls");
         }
     }
 void Interfaz::agregarConserva() {
@@ -380,7 +415,6 @@ void Interfaz::agregarEmbutido() {
        
         listaProductos.agregar(c);
     }
-
 void Interfaz::agregarFactura() {
     if (listaProductos.isEmpty()) {
         std::cout << "No hay productos disponibles, volviendo al menu..\n";
@@ -389,7 +423,7 @@ void Interfaz::agregarFactura() {
         return; // Salir del método si no hay productos disponibles
     }
     std::string cedula;
-    unsigned int codigo = 0;
+    static unsigned int codigo = 0;
     bool repetir = true, agregado = false;
     Lista<Producto*> productosFactura; 
 
@@ -436,4 +470,8 @@ void Interfaz::agregarFactura() {
         system("pause");
         system("cls");
     }
+}
+
+void Interfaz::agregar(Producto* p) {
+    listaProductos.agregar(p);
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include "Factura.h"
-#include <iostream>
 
 Factura::Factura(std::string numero_factura, std::string _nombre, Lista<Producto*>& _productos) : nombre(_nombre),
 codigo (numero_factura), productos(_productos) {
@@ -10,6 +9,8 @@ codigo (numero_factura), productos(_productos) {
 }
 
 Factura::Factura() : nombre(""), codigo(""), subtotal(0.0), iva(0), total(0.0), productos() {}
+
+void Factura::agregarProductos(Producto* producto) { productos.agregar(producto); }
 
 double Factura::calcularSubtotal() {
     double subtotal = 0;
@@ -45,7 +46,14 @@ std::string Factura::toString() const {
 }
 std::string Factura::guardar() const {
     std::stringstream s;
-
+    s << codigo << '$'
+      << nombre << '$'
+      << subtotal << '$'
+      << iva << '$'
+      << total << '$'
+      << productos.cantidad() << '$'
+      << productos.guardar();
+    return s.str();
 }
 std::string Factura::getCodigo() const { return codigo; }
 std::string Factura::getNombre() const { return nombre; }
@@ -54,3 +62,9 @@ std::string Factura::getNombreComercial() const { return ""; }
 double Factura::getPrecio() const { return 0.0; }
 int Factura::getExistencia() const { return 0; }
 int Factura::getLimite() const { return 0; }
+
+void Factura::setCodigo(std::string _codigo) { codigo = _codigo; }
+void Factura::setNombre(std::string _nombre) { nombre = _nombre; }
+void Factura::setSubtotal(double _subtotal) { subtotal = _subtotal; }
+void Factura::setIVA(double _iva) { iva = _iva; }
+void Factura::setTotal(double _total) { total = _total; }

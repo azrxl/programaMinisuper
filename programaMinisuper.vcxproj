@@ -145,7 +145,6 @@
     <ClInclude Include="Clases.h" />
     <ClInclude Include="Conserva.h" />
     <ClInclude Include="Embutido.h" />
-    <ClInclude Include="Excepciones.h" />
     <ClInclude Include="Factura.h" />
     <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Lista.h" />

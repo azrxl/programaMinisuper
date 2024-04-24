@@ -94,10 +94,6 @@ public:
 			Nodo* actual = inicio;
 			Nodo* siguiente = inicio->next;
 			while (actual->next) {
-				if (actual->dato->getTotal() < siguiente->dato->getTotal()) {
-					intercambiar(actual, siguiente);
-					intercambio = true;
-				}
 				actual = siguiente;
 				siguiente = siguiente->next;
 			}
@@ -242,6 +238,7 @@ public:
 	Iterador end() const {
 		return Iterador(nullptr);
 	}
+
 	private:
 	void intercambiar(Nodo* n1, Nodo* n2) {
 		if (!n1 || !n2 || n1 == n2) return;

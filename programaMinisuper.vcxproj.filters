@@ -22,9 +22,6 @@
     <Filter Include="Source Files\Interfaz">
       <UniqueIdentifier>{3d0dbf0d-1e8c-4e70-8627-394fe0ab97f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Interfaz\Excepciones">
-      <UniqueIdentifier>{0a7f9b32-5044-4a3b-bbb7-1cf1aa63b529}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Interfaz\Archivos">
       <UniqueIdentifier>{fc71767a-76b8-4536-9ad9-ff7082804148}</UniqueIdentifier>
     </Filter>
@@ -116,12 +113,6 @@
     <ClInclude Include="Conserva.h">
       <Filter>Header Files\Objetos\Producto\NoPerecederos</Filter>
     </ClInclude>
-    <ClInclude Include="Excepciones.h">
-      <Filter>Header Files\Interfaz\Excepciones</Filter>
-    </ClInclude>
-    <ClInclude Include="Archivo.h">
-      <Filter>Header Files\Interfaz\Archivos</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaz.h">
       <Filter>Header Files\Interfaz</Filter>
     </ClInclude>
@@ -133,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="Clases.h">
       <Filter>Header Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Archivo.h">
+      <Filter>Header Files\Interfaz\Archivos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

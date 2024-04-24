@@ -1,12 +1,22 @@
 #pragma once
 #include <fstream>
-#include "Clases.h"
+#include <iostream>
+#include "Lista.h"
+#include "Producto.h"
+#include "Factura.h"
+#include "Embutido.h"
+#include "Conserva.h"
+
+class Factura;
 
 class Archivo {
 public:
-	Archivo();
-	void guardarProductos(std::string nombre, const Lista<Producto*>& lista);
-	void guardarFacturas(std::string nombre, const Lista<Factura*>& lista);
-	void cargarProductos(std::string nombre, Lista<Producto*>&);
-	void cargarFacturas(std::string nombre, Lista<Factura*>&);
+	Archivo(std::string nombre);
+	void guardarProductos(const Lista<Producto*>&);
+	void guardarFacturas(const Lista<Factura*>&);
+	bool cargarProductos(Lista<Producto*>&);
+	bool cargarFacturas(Lista<Factura*>&);
+private:
+	std::string nombreArchivo;
 };
+
